@@ -1,0 +1,10 @@
+:mod:`pyeeg.io`.WordLevelFeatures.align_word_features
+==================================================================
+
+.. currentmodule:: pyeeg.io
+
+.. automethod:: WordLevelFeatures.align_word_features
+
+.. raw:: html
+
+    <div class="clearer"></div>

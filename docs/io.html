@@ -42,7 +42,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Preprocessing module" href="preprocess.html" />
+    <link rel="next" title="pyeeg.io.AlignedSpeech" href="generated/pyeeg.io.AlignedSpeech.html" />
     <link rel="prev" title="TRF on Syntactic Features" href="examples/TRF_syntactic_feats.html" />
     <link href="_static/style.css" rel="stylesheet" type="text/css">
      
@@ -106,8 +106,23 @@
 <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">IO module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.AlignedSpeech.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.AlignedSpeech</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.WordLevelFeatures.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.WordLevelFeatures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.eeglab2mne.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.eeglab2mne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_mat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_mat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_ica_matrices.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_ica_matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.extract_duration_audio.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.extract_duration_audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.extract_duration_praat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.extract_duration_praat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_surprisal_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_surprisal_values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_wordfreq_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_wordfreq_values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.get_word_onsets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.get_word_onsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.get_word_vectors.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.get_word_vectors</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="preprocess.html">Preprocessing module</a></li>
@@ -207,8 +222,20 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="io-module">
-<h1>IO module<a class="headerlink" href="#io-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pyeeg.io">
+<span id="io-module"></span><h1>IO module<a class="headerlink" href="#module-pyeeg.io" title="Permalink to this headline">¶</a></h1>
+<p>Input/output of data from files:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>import EEG data from .set files or raw files</p></li>
+<li><p>import features (word level features, envelopes, etc.)</p></li>
+</ul>
+</div></blockquote>
+<p>Module to correctly extract Matlab files,
+especially EEGLAB .set files no matter if the version is &gt;=7.3 and
+take the data to MNE format.</p>
+<p>Another important part are classes to handle continuous stimuli aligned with EEG recording.
+These <em>aligned features</em> then serve as an input to most of the decoding functions.</p>
 <div class="section" id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
@@ -217,6 +244,12 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.AlignedSpeech.html#pyeeg.io.AlignedSpeech" title="pyeeg.io.AlignedSpeech"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.AlignedSpeech</span></code></a>(onset, srate[, …])</p></td>
+<td><p>Generic class to describe features corresponding to a speech segment aligned with EEG data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.WordLevelFeatures.html#pyeeg.io.WordLevelFeatures" title="pyeeg.io.WordLevelFeatures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.WordLevelFeatures</span></code></a>([path_praat_env, …])</p></td>
+<td><p>Gather word-level linguistic features based on old and rigid files, generated from various sources (RNNLM, custom scripts for word frequencies, Forced-Alignment toolkit, …)</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -228,6 +261,33 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.eeglab2mne.html#pyeeg.io.eeglab2mne" title="pyeeg.io.eeglab2mne"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.eeglab2mne</span></code></a>(fname[, montage, …])</p></td>
+<td><p>Get an EEGLAB dataset into a MNE Raw object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_mat.html#pyeeg.io.load_mat" title="pyeeg.io.load_mat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_mat</span></code></a>(fname)</p></td>
+<td><p>Loading simple mat file into dictionnary</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.load_ica_matrices.html#pyeeg.io.load_ica_matrices" title="pyeeg.io.load_ica_matrices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_ica_matrices</span></code></a>(fname)</p></td>
+<td><p>Load ICA matrices from EEGLAB structure .set file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.extract_duration_audio.html#pyeeg.io.extract_duration_audio" title="pyeeg.io.extract_duration_audio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.extract_duration_audio</span></code></a>(filepath)</p></td>
+<td><p>Function to get the duration of an audio file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.extract_duration_praat.html#pyeeg.io.extract_duration_praat" title="pyeeg.io.extract_duration_praat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.extract_duration_praat</span></code></a>(fname)</p></td>
+<td><p>Function to get the duration from a file generated by PrAat software, for instance to get envelope or pitch of a sound.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_surprisal_values.html#pyeeg.io.load_surprisal_values" title="pyeeg.io.load_surprisal_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_surprisal_values</span></code></a>(filepath[, eps])</p></td>
+<td><p>Load surprisal values from the given file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.load_wordfreq_values.html#pyeeg.io.load_wordfreq_values" title="pyeeg.io.load_wordfreq_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_wordfreq_values</span></code></a>(filepath[, …])</p></td>
+<td><p>Load word frequency, and returns -log of it (scaled by median value)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.get_word_onsets.html#pyeeg.io.get_word_onsets" title="pyeeg.io.get_word_onsets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.get_word_onsets</span></code></a>(filepath)</p></td>
+<td><p>Simply load word lists and respective onsets for a given sound file/story parts…</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.get_word_vectors.html#pyeeg.io.get_word_vectors" title="pyeeg.io.get_word_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.get_word_vectors</span></code></a>(wordlist, wordvectors)</p></td>
+<td><p>Get the word vectors for each word in the list supplied.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -241,7 +301,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="preprocess.html" class="btn btn-neutral float-right" title="Preprocessing module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="generated/pyeeg.io.AlignedSpeech.html" class="btn btn-neutral float-right" title="pyeeg.io.AlignedSpeech" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="examples/TRF_syntactic_feats.html" class="btn btn-neutral float-left" title="TRF on Syntactic Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

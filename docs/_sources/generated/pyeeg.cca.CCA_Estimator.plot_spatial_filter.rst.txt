@@ -1,0 +1,10 @@
+:mod:`pyeeg.cca`.CCA_Estimator.plot_spatial_filter
+===============================================================
+
+.. currentmodule:: pyeeg.cca
+
+.. automethod:: CCA_Estimator.plot_spatial_filter
+
+.. raw:: html
+
+    <div class="clearer"></div>

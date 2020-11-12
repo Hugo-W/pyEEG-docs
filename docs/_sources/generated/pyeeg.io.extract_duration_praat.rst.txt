@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.extract_duration_praat
+===================================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: extract_duration_praat
+
+.. raw:: html
+
+    <div class="clearer"></div>

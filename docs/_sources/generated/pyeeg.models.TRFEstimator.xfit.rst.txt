@@ -1,0 +1,10 @@
+:mod:`pyeeg.models`.TRFEstimator.xfit
+==================================================
+
+.. currentmodule:: pyeeg.models
+
+.. automethod:: TRFEstimator.xfit
+
+.. raw:: html
+
+    <div class="clearer"></div>

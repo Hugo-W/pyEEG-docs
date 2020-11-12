@@ -1,0 +1,10 @@
+:mod:`pyeeg.io`.AlignedSpeech.get_envelope
+=======================================================
+
+.. currentmodule:: pyeeg.io
+
+.. automethod:: AlignedSpeech.get_envelope
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -1,0 +1,10 @@
+:mod:`pyeeg.io`.WordLevelFeatures.summary
+======================================================
+
+.. currentmodule:: pyeeg.io
+
+.. automethod:: WordLevelFeatures.summary
+
+.. raw:: html
+
+    <div class="clearer"></div>

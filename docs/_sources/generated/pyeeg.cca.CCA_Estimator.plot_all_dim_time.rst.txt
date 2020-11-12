@@ -1,0 +1,10 @@
+:mod:`pyeeg.cca`.CCA_Estimator.plot_all_dim_time
+=============================================================
+
+.. currentmodule:: pyeeg.cca
+
+.. automethod:: CCA_Estimator.plot_all_dim_time
+
+.. raw:: html
+
+    <div class="clearer"></div>

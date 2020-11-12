@@ -1,0 +1,10 @@
+:mod:`pyeeg.models`.TRFEstimator.fill_lags
+=======================================================
+
+.. currentmodule:: pyeeg.models
+
+.. automethod:: TRFEstimator.fill_lags
+
+.. raw:: html
+
+    <div class="clearer"></div>

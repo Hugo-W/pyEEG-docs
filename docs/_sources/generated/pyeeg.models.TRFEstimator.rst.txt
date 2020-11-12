@@ -1,0 +1,30 @@
+﻿:mod:`pyeeg.models`.TRFEstimator
+=======================================
+
+.. currentmodule:: pyeeg.models
+
+.. autoclass:: TRFEstimator
+
+Methods
+~~~~~~~
+
+   
+
+        .. autosummary::
+            :toctree:
+            :template: method.rst
+
+        
+            TRFEstimator.fill_lags
+            TRFEstimator.fit
+            TRFEstimator.get_params
+            TRFEstimator.plot
+            TRFEstimator.predict
+            TRFEstimator.score
+            TRFEstimator.set_params
+            TRFEstimator.xfit
+   
+
+.. raw:: html
+
+    <div class="clearer"></div>

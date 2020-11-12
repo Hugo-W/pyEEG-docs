@@ -42,7 +42,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Utilities" href="utils.html" />
+    <link rel="next" title="pyeeg.models.TRFEstimator" href="generated/pyeeg.models.TRFEstimator.html" />
     <link rel="prev" title="pyeeg.preprocess.covariances_extended" href="generated/pyeeg.preprocess.covariances_extended.html" />
     <link href="_static/style.css" rel="stylesheet" type="text/css">
      
@@ -108,8 +108,15 @@
 <li class="toctree-l1"><a class="reference internal" href="io.html">IO module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="preprocess.html">Preprocessing module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Modelling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.models.TRFEstimator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.models</span></code>.TRFEstimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.cca.CCA_Estimator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.cca</span></code>.CCA_Estimator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.models._svd_regress.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.models</span></code>._svd_regress</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
@@ -207,8 +214,25 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="modelling">
-<h1>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pyeeg.models">
+<span id="modelling"></span><h1>Modelling<a class="headerlink" href="#module-pyeeg.models" title="Permalink to this headline">¶</a></h1>
+<p>In this module, we can find different method to model the relationship
+between stimulus and (EEG) response. Namely there are wrapper functions
+implementing:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Forward modelling (stimulus -&gt; EEG), a.k.a _TRF_ (Temporal Response Functions)</p></li>
+<li><p>Backward modelling (EEG -&gt; stimulus)</p></li>
+<li><p>CCA (in cca.py)</p></li>
+<li><p>…</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Maybe add DNN models, if so this should rather be a subpackage.
+Modules for each modelling architecture will then be implemented within the subpackage
+and we would have in <cite>__init__.py</cite> an entry to load all architectures.</p>
+</div>
 <div class="section" id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
@@ -217,6 +241,9 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.models.TRFEstimator.html#pyeeg.models.TRFEstimator" title="pyeeg.models.TRFEstimator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.models.TRFEstimator</span></code></a>([times, tmin, …])</p></td>
+<td><p>Temporal Response Function (TRF) Estimator Class.</p></td>
+</tr>
 </tbody>
 </table>
 <table class="longtable docutils align-default">
@@ -225,6 +252,9 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.cca.CCA_Estimator.html#pyeeg.cca.CCA_Estimator" title="pyeeg.cca.CCA_Estimator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.cca.CCA_Estimator</span></code></a>([times, tmin, tmax, …])</p></td>
+<td><p>Canonical Correlation (CCA) Estimator Class.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -236,6 +266,9 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.models._svd_regress.html#pyeeg.models._svd_regress" title="pyeeg.models._svd_regress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.models._svd_regress</span></code></a>(x, y[, alpha])</p></td>
+<td><p>Linear regression using svd.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -249,7 +282,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="utils.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="generated/pyeeg.models.TRFEstimator.html" class="btn btn-neutral float-right" title="pyeeg.models.TRFEstimator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="generated/pyeeg.preprocess.covariances_extended.html" class="btn btn-neutral float-left" title="pyeeg.preprocess.covariances_extended" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

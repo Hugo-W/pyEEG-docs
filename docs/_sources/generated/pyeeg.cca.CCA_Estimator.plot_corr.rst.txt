@@ -1,0 +1,10 @@
+:mod:`pyeeg.cca`.CCA_Estimator.plot_corr
+=====================================================
+
+.. currentmodule:: pyeeg.cca
+
+.. automethod:: CCA_Estimator.plot_corr
+
+.. raw:: html
+
+    <div class="clearer"></div>

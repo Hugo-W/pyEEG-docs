@@ -1,0 +1,27 @@
+﻿:mod:`pyeeg.io`.AlignedSpeech
+====================================
+
+.. currentmodule:: pyeeg.io
+
+.. autoclass:: AlignedSpeech
+
+Methods
+~~~~~~~
+
+   
+
+        .. autosummary::
+            :toctree:
+            :template: method.rst
+
+        
+            AlignedSpeech.add_feature
+            AlignedSpeech.add_word_level_features
+            AlignedSpeech.create_word_level_features
+            AlignedSpeech.get_envelope
+            AlignedSpeech.samples_from_onset
+   
+
+.. raw:: html
+
+    <div class="clearer"></div>

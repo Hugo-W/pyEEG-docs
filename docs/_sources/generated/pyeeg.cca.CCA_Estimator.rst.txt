@@ -1,0 +1,32 @@
+﻿:mod:`pyeeg.cca`.CCA_Estimator
+=====================================
+
+.. currentmodule:: pyeeg.cca
+
+.. autoclass:: CCA_Estimator
+
+Methods
+~~~~~~~
+
+   
+
+        .. autosummary::
+            :toctree:
+            :template: method.rst
+
+        
+            CCA_Estimator.fit
+            CCA_Estimator.get_params
+            CCA_Estimator.plot_activation_map
+            CCA_Estimator.plot_all_dim_time
+            CCA_Estimator.plot_compact_time
+            CCA_Estimator.plot_corr
+            CCA_Estimator.plot_spatial_filter
+            CCA_Estimator.plot_time_filter
+            CCA_Estimator.set_params
+            CCA_Estimator.transform
+   
+
+.. raw:: html
+
+    <div class="clearer"></div>

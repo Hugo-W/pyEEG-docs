@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.models`._svd_regress
+=============================================
+
+.. currentmodule:: pyeeg.models
+
+.. autofunction:: _svd_regress
+
+.. raw:: html
+
+    <div class="clearer"></div>

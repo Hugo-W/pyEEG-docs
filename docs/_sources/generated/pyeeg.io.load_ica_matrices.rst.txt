@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.load_ica_matrices
+==============================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: load_ica_matrices
+
+.. raw:: html
+
+    <div class="clearer"></div>

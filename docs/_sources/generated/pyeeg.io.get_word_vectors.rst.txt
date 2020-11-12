@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.get_word_vectors
+=============================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: get_word_vectors
+
+.. raw:: html
+
+    <div class="clearer"></div>

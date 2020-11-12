@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.extract_duration_audio
+===================================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: extract_duration_audio
+
+.. raw:: html
+
+    <div class="clearer"></div>

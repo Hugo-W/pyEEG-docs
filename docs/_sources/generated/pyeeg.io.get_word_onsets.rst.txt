@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.get_word_onsets
+============================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: get_word_onsets
+
+.. raw:: html
+
+    <div class="clearer"></div>

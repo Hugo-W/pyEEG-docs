@@ -1,0 +1,10 @@
+:mod:`pyeeg.io`.AlignedSpeech.samples_from_onset
+=============================================================
+
+.. currentmodule:: pyeeg.io
+
+.. automethod:: AlignedSpeech.samples_from_onset
+
+.. raw:: html
+
+    <div class="clearer"></div>

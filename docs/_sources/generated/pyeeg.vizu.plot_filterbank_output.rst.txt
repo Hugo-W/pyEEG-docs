@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.vizu`.plot_filterbank_output
+=====================================================
+
+.. currentmodule:: pyeeg.vizu
+
+.. autofunction:: plot_filterbank_output
+
+.. raw:: html
+
+    <div class="clearer"></div>

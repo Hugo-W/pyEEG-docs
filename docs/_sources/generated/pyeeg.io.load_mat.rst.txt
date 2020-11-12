@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.load_mat
+=====================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: load_mat
+
+.. raw:: html
+
+    <div class="clearer"></div>

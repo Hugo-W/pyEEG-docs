@@ -1,0 +1,10 @@
+:mod:`pyeeg.cca`.CCA_Estimator.set_params
+======================================================
+
+.. currentmodule:: pyeeg.cca
+
+.. automethod:: CCA_Estimator.set_params
+
+.. raw:: html
+
+    <div class="clearer"></div>

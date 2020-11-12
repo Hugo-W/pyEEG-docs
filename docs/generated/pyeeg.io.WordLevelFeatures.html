@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyeeg.io.WordLevelFeatures &mdash; pyEEG 1.1a documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyeeg.io.WordLevelFeatures.align_word_features" href="pyeeg.io.WordLevelFeatures.align_word_features.html" />
+    <link rel="prev" title="pyeeg.io.AlignedSpeech.samples_from_onset" href="pyeeg.io.AlignedSpeech.samples_from_onset.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+     
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+          
+
+          
+            
+            <img src="../_static/pyeeg-logo-light.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">To get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../io.html">IO module</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../io.html#classes">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyeeg.io.AlignedSpeech.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.AlignedSpeech</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.WordLevelFeatures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../preprocess.html">Preprocessing module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vizu.html">Vizualisaton</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About pyEEG</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyEEG</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../io.html">IO module</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.WordLevelFeatures</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/pyeeg.io.WordLevelFeatures.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="pyeeg-io-wordlevelfeatures">
+<h1><a class="reference internal" href="../io.html#module-pyeeg.io" title="pyeeg.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code></a>.WordLevelFeatures<a class="headerlink" href="#pyeeg-io-wordlevelfeatures" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="pyeeg.io.WordLevelFeatures">
+<em class="property">class </em><code class="sig-prename descclassname">pyeeg.io.</code><code class="sig-name descname">WordLevelFeatures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path_praat_env</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_surprisal</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_wordvectors</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_wordfrequency</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_syntactic</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_wordonsets</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_transcript</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rnnlm_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_audio</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">keep_vectors</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unk_wv</span><span class="o">=</span><span class="default_value">'rdm'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gather word-level linguistic features based on old and rigid files, generated from
+various sources (RNNLM, custom scripts for word frequencies, Forced-Alignment toolkit, …)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path_praat_env</strong> (<em>str</em>) – Path to Praat file for envelopes (.Env files in
+<cite>Katerina_experiment/story-parts/alignment_data/</cite>)</p></li>
+<li><p><strong>path_surprisal</strong> (<em>str</em>) – Path to file containing surprisal values, as extracted with RNNLM toolkit.</p></li>
+<li><p><strong>path_wordvectors</strong> (<em>str</em>) – Path to Word Vector file, can be binary or textual. Though for text, must start
+with a line indicating number of words and dimension (i.e. <cite>gensim</cite> compatible)</p></li>
+<li><p><strong>path_wordfrequency</strong> (<em>str</em>) – Path to file containing word counts as exctracted from Google Unigrams.</p></li>
+<li><p><strong>path_syntactic</strong> (<em>str</em>) – Path to file containing all following syntactic features: depth in syntactic structure
+parse, opening node, closing node</p></li>
+<li><p><strong>path_wordonsets</strong> (<em>str</em>) – <em>Important!</em> Path to file with word onsets. For now, this must be one of the <cite>*_timed.csv</cite>
+files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/*</cite></p></li>
+<li><p><strong>path_transcript</strong> (<em>str</em>) – Path to actual text data of corresponding speech segment (transcript).</p></li>
+<li><p><strong>path_audio</strong> (<em>str</em>) – Path to audio file</p></li>
+<li><p><strong>rnnlm_model</strong> (<em>str</em>) – Path to RNNLM toolkit to compute surprisal and entropy values from a text.</p></li>
+<li><p><strong>keep_vectors</strong> (<em>bool</em><em> (</em><em>default: False</em><em>)</em>) – If true, will keep the full matrix of all word vectors in memory along with vocabulary
+(see <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.wordvectors_matrix</span></code>)</p></li>
+<li><p><strong>unk_wv</strong> (<em>str {'skip</em><em>, </em><em>'rdm'</em><em>, </em><em>'closest'}</em>) – See parameter <cite>unk</cite> in :func:’get_word_vectors’</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.duration">
+<code class="sig-name descname">duration</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duration in seconds of the speech segment represented by this instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.surprisal">
+<code class="sig-name descname">surprisal</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.surprisal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surprisal values for each words</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.wordfrequency">
+<code class="sig-name descname">wordfrequency</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordfrequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Word frequency values for each words</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.wordonsets">
+<code class="sig-name descname">wordonsets</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordonsets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Onsets values for each words</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.wordlist">
+<code class="sig-name descname">wordlist</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of words from which each feature is being measured</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.wordvectors">
+<code class="sig-name descname">wordvectors</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix of word vectors, i.e. concatenation of word vector correpsonding to words in the text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array-like (nwords x ndimension)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.vectordim">
+<code class="sig-name descname">vectordim</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.vectordim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of dimensions in the word embedding currently loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.wordvectors_matrix">
+<code class="sig-name descname">wordvectors_matrix</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>All word vectors (only if <code class="xref py py-data docutils literal notranslate"><span class="pre">keep_vectors</span></code> is True)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>ndarray (nvocab x ndims)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.io.WordLevelFeatures.wordvectors_vocab">
+<code class="sig-name descname">wordvectors_vocab</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors_vocab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vocabulary associated with word vectors (only if full matrix loaded)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyeeg.io</span> <span class="kn">import</span> <span class="n">WordLevelFeatures</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wordfreq_path</span> <span class="o">=</span> <span class="s1">&#39;/media/hw2512/SeagateExpansionDrive/EEG_data/Katerina_experiment/story_parts/word_frequencies/&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">env_path</span> <span class="o">=</span> <span class="s1">&#39;/media/hw2512/SeagateExpansionDrive/EEG_data/Katerina_experiment/story_parts/alignement_data/&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">surprisal_path</span> <span class="o">=</span> <span class="s1">&#39;/media/hw2512/SeagateExpansionDrive/EEG_data/Katerina_experiment/story_parts/surprisal/&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_wordfreq_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">wordfreq_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;timed.csv&#39;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_surprisal_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">surprisal_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;3.txt&#39;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_stories</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;_word_freq_timed.csv&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">list_wordfreq_files</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">list_env_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">env_path</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="s1">&#39;_125Hz.Env&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">list_stories</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">surp_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">surprisal_path</span><span class="p">,</span> <span class="n">list_surprisal_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wf_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wordfreq_path</span><span class="p">,</span> <span class="n">list_wordfreq_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dur_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">env_path</span><span class="p">,</span> <span class="n">list_env_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wo_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wordfreq_path</span><span class="p">,</span> <span class="n">list_wordfreq_files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wfeats</span> <span class="o">=</span> <span class="n">WordLevelFeatures</span><span class="p">(</span><span class="n">path_praat_env</span><span class="o">=</span><span class="n">dur_path</span><span class="p">,</span> <span class="n">path_wordonsets</span><span class="o">=</span><span class="n">wo_path</span><span class="p">,</span> <span class="n">path_surprisal</span><span class="o">=</span><span class="n">surp_path</span><span class="p">,</span> <span class="n">path_wordfrequency</span><span class="o">=</span><span class="n">wf_path</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wf</span>
+<span class="go">   surprisal   wordfreq      words     onsets</span>
+<span class="go">0   6.202895   9.631348         if   9.631348</span>
+<span class="go">1  11.555537   6.981747        the   6.981747</span>
+<span class="go">2  25.527839  13.521181  afternoon  13.521181</span>
+<span class="go">3  27.631021   8.300234        was   8.300234</span>
+<span class="go">4   9.720567  12.214926       fine  12.214926</span>
+<span class="go">Duration: 159.08</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">wf</span><span class="o">.</span><span class="n">align_word_features</span><span class="p">(</span><span class="n">srate</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;surprisal&#39;</span><span class="p">,</span> <span class="s1">&#39;wordfrequency&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For now, the class assumes that the data are stored in a given format that depended
+on the processing done for the work on surprisal. However it ought to be extended to
+be bale to generate surprisal/word frequency/word onsets/word vectors for a given audio
+files along with its transcript.</p>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><p>Extend the class to create word-feature of choices on-the-fly</p></li>
+<li><p>Be able to extract word onsets from TextGrid data?</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyeeg.io.WordLevelFeatures.align_word_features.html#pyeeg.io.WordLevelFeatures.align_word_features" title="pyeeg.io.WordLevelFeatures.align_word_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WordLevelFeatures.align_word_features</span></code></a>(srate)</p></td>
+<td><p>Check that we have the correct number of elements for each features Will output a time series with spike for each word features at times from <code class="xref py py-attr docutils literal notranslate"><span class="pre">self.wordonsets</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyeeg.io.WordLevelFeatures.summary.html#pyeeg.io.WordLevelFeatures.summary" title="pyeeg.io.WordLevelFeatures.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WordLevelFeatures.summary</span></code></a>()</p></td>
+<td><p>Print a short summary for each variables contained in the instance</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="clearer"></div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyeeg.io.WordLevelFeatures.align_word_features.html" class="btn btn-neutral float-right" title="pyeeg.io.WordLevelFeatures.align_word_features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyeeg.io.AlignedSpeech.samples_from_onset.html" class="btn btn-neutral float-left" title="pyeeg.io.AlignedSpeech.samples_from_onset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Hugo Weissbart
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

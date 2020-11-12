@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.eeglab2mne
+=======================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: eeglab2mne
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.vizu`.topoplot_array
+=============================================
+
+.. currentmodule:: pyeeg.vizu
+
+.. autofunction:: topoplot_array
+
+.. raw:: html
+
+    <div class="clearer"></div>

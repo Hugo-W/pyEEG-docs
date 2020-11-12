@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.load_surprisal_values
+==================================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: load_surprisal_values
+
+.. raw:: html
+
+    <div class="clearer"></div>

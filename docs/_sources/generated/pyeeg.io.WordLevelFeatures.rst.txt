@@ -1,0 +1,24 @@
+﻿:mod:`pyeeg.io`.WordLevelFeatures
+========================================
+
+.. currentmodule:: pyeeg.io
+
+.. autoclass:: WordLevelFeatures
+
+Methods
+~~~~~~~
+
+   
+
+        .. autosummary::
+            :toctree:
+            :template: method.rst
+
+        
+            WordLevelFeatures.align_word_features
+            WordLevelFeatures.summary
+   
+
+.. raw:: html
+
+    <div class="clearer"></div>

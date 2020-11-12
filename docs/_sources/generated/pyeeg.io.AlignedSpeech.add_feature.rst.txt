@@ -1,0 +1,10 @@
+:mod:`pyeeg.io`.AlignedSpeech.add_feature
+======================================================
+
+.. currentmodule:: pyeeg.io
+
+.. automethod:: AlignedSpeech.add_feature
+
+.. raw:: html
+
+    <div class="clearer"></div>
