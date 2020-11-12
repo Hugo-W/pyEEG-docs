@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.fir_order
+=========================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: fir_order
+
+.. raw:: html
+
+    <div class="clearer"></div>

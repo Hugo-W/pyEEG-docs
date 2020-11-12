@@ -1,0 +1,10 @@
+:mod:`pyeeg.preprocess`.MultichanWienerFilter.fit
+==============================================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. automethod:: MultichanWienerFilter.fit
+
+.. raw:: html
+
+    <div class="clearer"></div>

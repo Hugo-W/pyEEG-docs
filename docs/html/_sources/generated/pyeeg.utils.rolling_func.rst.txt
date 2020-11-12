@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.rolling_func
+============================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: rolling_func
+
+.. raw:: html
+
+    <div class="clearer"></div>

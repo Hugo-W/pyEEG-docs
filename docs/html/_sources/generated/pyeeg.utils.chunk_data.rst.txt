@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.chunk_data
+==========================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: chunk_data
+
+.. raw:: html
+
+    <div class="clearer"></div>

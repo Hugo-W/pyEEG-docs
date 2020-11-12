@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Preprocessing module &mdash; pyEEG 1.1a documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyeeg.mcca.mCCA" href="generated/pyeeg.mcca.mCCA.html" />
+    <link rel="prev" title="IO module" href="io.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+     
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+          
+
+          
+            
+            <img src="_static/pyeeg-logo-light.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">To get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="io.html">IO module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Preprocessing module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.mcca.mCCA.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.mcca</span></code>.mCCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.preprocess.MultichanWienerFilter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code>.MultichanWienerFilter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.preprocess.create_filterbank.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code>.create_filterbank</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.preprocess.apply_filterbank.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code>.apply_filterbank</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.preprocess.get_power.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code>.get_power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.preprocess.covariances.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code>.covariances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.preprocess.covariances_extended.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code>.covariances_extended</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vizu.html">Vizualisaton</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About pyEEG</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyEEG</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Preprocessing module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/preprocess.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-pyeeg.preprocess">
+<span id="preprocessing-module"></span><h1>Preprocessing module<a class="headerlink" href="#module-pyeeg.preprocess" title="Permalink to this headline">¶</a></h1>
+<p>Module containing some preprocessing helper and function to be applied to EEG…</p>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.mcca.mCCA.html#pyeeg.mcca.mCCA" title="pyeeg.mcca.mCCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.mcca.mCCA</span></code></a>([n_components])</p></td>
+<td><p>Class to support mCCA computation on a set of data matrices.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.MultichanWienerFilter.html#pyeeg.preprocess.MultichanWienerFilter" title="pyeeg.preprocess.MultichanWienerFilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.MultichanWienerFilter</span></code></a>([…])</p></td>
+<td><p>This class implements a multichannel Wiener Filter for artifact removal.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.create_filterbank.html#pyeeg.preprocess.create_filterbank" title="pyeeg.preprocess.create_filterbank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.create_filterbank</span></code></a>(freqs, srate)</p></td>
+<td><p>Creates a filter bank, by default of chebychev type 2 filters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.apply_filterbank.html#pyeeg.preprocess.apply_filterbank" title="pyeeg.preprocess.apply_filterbank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.apply_filterbank</span></code></a>(data, fbank)</p></td>
+<td><p>Applies a filterbank to a given multi-channel signal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.get_power.html#pyeeg.preprocess.get_power" title="pyeeg.preprocess.get_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.get_power</span></code></a>(signals[, …])</p></td>
+<td><p>Compute the (log) power modulation of a signal by taking the smooth moving average of its square values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.covariances.html#pyeeg.preprocess.covariances" title="pyeeg.preprocess.covariances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.covariances</span></code></a>(X[, estimator])</p></td>
+<td><p>Estimation of covariance matrices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.covariances_extended.html#pyeeg.preprocess.covariances_extended" title="pyeeg.preprocess.covariances_extended"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.covariances_extended</span></code></a>(X, P)</p></td>
+<td><p>Special form covariance matrix where data are appended with another set.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generated/pyeeg.mcca.mCCA.html" class="btn btn-neutral float-right" title="pyeeg.mcca.mCCA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="io.html" class="btn btn-neutral float-left" title="IO module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Hugo Weissbart
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

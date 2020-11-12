@@ -1,0 +1,10 @@
+:mod:`pyeeg.preprocess`.MultichanWienerFilter.transorm
+===================================================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. automethod:: MultichanWienerFilter.transorm
+
+.. raw:: html
+
+    <div class="clearer"></div>

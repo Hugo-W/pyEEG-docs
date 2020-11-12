@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.lag_sparse
+==========================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: lag_sparse
+
+.. raw:: html
+
+    <div class="clearer"></div>

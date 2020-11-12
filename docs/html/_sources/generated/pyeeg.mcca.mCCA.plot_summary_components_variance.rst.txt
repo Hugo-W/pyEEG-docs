@@ -1,0 +1,10 @@
+:mod:`pyeeg.mcca`.mCCA.plot_summary_components_variance
+====================================================================
+
+.. currentmodule:: pyeeg.mcca
+
+.. automethod:: mCCA.plot_summary_components_variance
+
+.. raw:: html
+
+    <div class="clearer"></div>

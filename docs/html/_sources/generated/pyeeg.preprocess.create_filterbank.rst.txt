@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.preprocess`.create_filterbank
+======================================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. autofunction:: create_filterbank
+
+.. raw:: html
+
+    <div class="clearer"></div>

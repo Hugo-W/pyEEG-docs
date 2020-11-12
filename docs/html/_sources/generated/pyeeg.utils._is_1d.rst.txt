@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`._is_1d
+======================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: _is_1d
+
+.. raw:: html
+
+    <div class="clearer"></div>

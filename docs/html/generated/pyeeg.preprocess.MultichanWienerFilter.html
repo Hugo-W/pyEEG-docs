@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyeeg.preprocess.MultichanWienerFilter &mdash; pyEEG 1.1a documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyeeg.preprocess.MultichanWienerFilter.fit" href="pyeeg.preprocess.MultichanWienerFilter.fit.html" />
+    <link rel="prev" title="pyeeg.mcca.mCCA.set_params" href="pyeeg.mcca.mCCA.set_params.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+     
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+          
+
+          
+            
+            <img src="../_static/pyeeg-logo-light.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">To get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../io.html">IO module</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../preprocess.html">Preprocessing module</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../preprocess.html#classes">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyeeg.mcca.mCCA.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.mcca</span></code>.mCCA</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code>.MultichanWienerFilter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../preprocess.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vizu.html">Vizualisaton</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About pyEEG</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyEEG</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../preprocess.html">Preprocessing module</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code>.MultichanWienerFilter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/pyeeg.preprocess.MultichanWienerFilter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="pyeeg-preprocess-multichanwienerfilter">
+<h1><a class="reference internal" href="../preprocess.html#module-pyeeg.preprocess" title="pyeeg.preprocess"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code></a>.MultichanWienerFilter<a class="headerlink" href="#pyeeg-preprocess-multichanwienerfilter" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="pyeeg.preprocess.MultichanWienerFilter">
+<em class="property">class </em><code class="sig-prename descclassname">pyeeg.preprocess.</code><code class="sig-name descname">MultichanWienerFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lags</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">low_rank</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">thresh</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.preprocess.MultichanWienerFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class implements a multichannel Wiener Filter for artifact removal.
+The method is detailed in the reference paper <em>A generic EEG artifact removal algorithm based on the multi-channel
+Wiener filter</em> from Ben Somers et. al.</p>
+<p>To correctly train the model, one must supply portions of contaminated data and clean data. This can be selected visually
+using the annotation tool from MNE for instance, or automatically by detecting above threshold values and considering this as
+bad portions. It is ok to have large windows around bad data segments, however the clean segments must be artifact free.</p>
+<p>The model expects zero-mean data for both noisy and clean segments.</p>
+<dl class="py attribute">
+<dt id="pyeeg.preprocess.MultichanWienerFilter.lags">
+<code class="sig-name descname">lags</code><a class="headerlink" href="#pyeeg.preprocess.MultichanWienerFilter.lags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lags used for general model (NOT IMPLEMENTED YET)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.preprocess.MultichanWienerFilter.low_rank">
+<code class="sig-name descname">low_rank</code><a class="headerlink" href="#pyeeg.preprocess.MultichanWienerFilter.low_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether to use low-rank approximation of covariance matrix for the artifactual data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.preprocess.MultichanWienerFilter.thresh">
+<code class="sig-name descname">thresh</code><a class="headerlink" href="#pyeeg.preprocess.MultichanWienerFilter.thresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>If int, this will correspond to the rank prior
+If float, it will be considered as the percent of variance to be kept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="pyeeg.preprocess.MultichanWienerFilter.W_">
+<code class="sig-name descname">W_</code><a class="headerlink" href="#pyeeg.preprocess.MultichanWienerFilter.W_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once fitted, contains the filter coefficients</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Example</p>
+<p>TODO: Add code example</p>
+<p>Example of result obtained (cleaning EOG artifact here):</p>
+<a class="reference internal image-reference" href="../_images/MWF_EOG_cleaning_example.png"><img alt="../_images/MWF_EOG_cleaning_example.png" src="../_images/MWF_EOG_cleaning_example.png" style="width: 600px;" /></a>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyeeg.preprocess.MultichanWienerFilter.fit.html#pyeeg.preprocess.MultichanWienerFilter.fit" title="pyeeg.preprocess.MultichanWienerFilter.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultichanWienerFilter.fit</span></code></a>(y_clean, y_artifact)</p></td>
+<td><p>Fit model to data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyeeg.preprocess.MultichanWienerFilter.fit_transform.html#pyeeg.preprocess.MultichanWienerFilter.fit_transform" title="pyeeg.preprocess.MultichanWienerFilter.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultichanWienerFilter.fit_transform</span></code></a>(y_clean, …)</p></td>
+<td><p>Train the model on input and transform directly the data in <cite>x</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyeeg.preprocess.MultichanWienerFilter.transorm.html#pyeeg.preprocess.MultichanWienerFilter.transorm" title="pyeeg.preprocess.MultichanWienerFilter.transorm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultichanWienerFilter.transorm</span></code></a>(x)</p></td>
+<td><p>Filter the data to remove artifact learned by the model.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="clearer"></div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyeeg.preprocess.MultichanWienerFilter.fit.html" class="btn btn-neutral float-right" title="pyeeg.preprocess.MultichanWienerFilter.fit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyeeg.mcca.mCCA.set_params.html" class="btn btn-neutral float-left" title="pyeeg.mcca.mCCA.set_params" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Hugo Weissbart
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.signal_envelope
+===============================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: signal_envelope
+
+.. raw:: html
+
+    <div class="clearer"></div>

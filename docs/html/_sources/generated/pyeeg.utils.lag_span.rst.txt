@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.lag_span
+========================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: lag_span
+
+.. raw:: html
+
+    <div class="clearer"></div>

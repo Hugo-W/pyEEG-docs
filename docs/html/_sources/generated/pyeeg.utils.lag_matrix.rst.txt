@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.lag_matrix
+==========================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: lag_matrix
+
+.. raw:: html
+
+    <div class="clearer"></div>

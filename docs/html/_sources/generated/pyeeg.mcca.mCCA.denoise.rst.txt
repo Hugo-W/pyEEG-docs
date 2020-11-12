@@ -1,0 +1,10 @@
+:mod:`pyeeg.mcca`.mCCA.denoise
+===========================================
+
+.. currentmodule:: pyeeg.mcca
+
+.. automethod:: mCCA.denoise
+
+.. raw:: html
+
+    <div class="clearer"></div>

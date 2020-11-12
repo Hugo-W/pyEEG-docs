@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.shift_array
+===========================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: shift_array
+
+.. raw:: html
+
+    <div class="clearer"></div>

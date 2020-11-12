@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.is_pos_def
+==========================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: is_pos_def
+
+.. raw:: html
+
+    <div class="clearer"></div>

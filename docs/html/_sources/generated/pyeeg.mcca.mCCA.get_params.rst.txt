@@ -1,0 +1,10 @@
+:mod:`pyeeg.mcca`.mCCA.get_params
+==============================================
+
+.. currentmodule:: pyeeg.mcca
+
+.. automethod:: mCCA.get_params
+
+.. raw:: html
+
+    <div class="clearer"></div>

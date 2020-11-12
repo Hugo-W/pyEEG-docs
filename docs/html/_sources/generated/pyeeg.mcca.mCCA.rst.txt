@@ -1,0 +1,28 @@
+﻿:mod:`pyeeg.mcca`.mCCA
+=============================
+
+.. currentmodule:: pyeeg.mcca
+
+.. autoclass:: mCCA
+
+Methods
+~~~~~~~
+
+   
+
+        .. autosummary::
+            :toctree:
+            :template: method.rst
+
+        
+            mCCA.canonical_correlate_single
+            mCCA.denoise
+            mCCA.fit
+            mCCA.get_params
+            mCCA.plot_summary_components_variance
+            mCCA.set_params
+   
+
+.. raw:: html
+
+    <div class="clearer"></div>

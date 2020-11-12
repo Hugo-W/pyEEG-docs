@@ -1,0 +1,1579 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TRF on Syntactic Features &mdash; pyEEG 1.1a documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IO module" href="../io.html" />
+    <link rel="prev" title="Loading WordVectors as word level features" href="import_WordVectors.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+     
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+          
+
+          
+            
+            <img src="../_static/pyeeg-logo-light.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">To get started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Instructions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#loading-word-level-features">Loading Word-level features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#loading-word-vectors">Loading Word vectors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tutorials.html#loading-processed-eeg-processed-by-eeglab">Loading processed EEG (processed by EEGLAB)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="TRF_wordonsets.html">TRF Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CCA_envelope.html">CCA Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="import_WordVectors.html">Loading WordVectors as word level features</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">TRF on Syntactic Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Single-subject,-single-story">Single subject, single story</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Run-TRF-modelling">Run TRF modelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Average-several-models">Average several models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Compute-one-big-model">Compute one <em>big</em> model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../io.html">IO module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preprocess.html">Preprocessing module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models.html">Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vizu.html">Vizualisaton</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About pyEEG</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyEEG</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorials.html">Tutorials</a> &raquo;</li>
+        
+      <li>TRF on Syntactic Features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/examples/TRF_syntactic_feats.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="TRF-on-Syntactic-Features">
+<h1>TRF on Syntactic Features<a class="headerlink" href="#TRF-on-Syntactic-Features" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook we show how to import word onset as a word-level feature and compute TRF from them.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">zscore</span>
+<span class="kn">from</span> <span class="nn">pyeeg.io</span> <span class="kn">import</span> <span class="n">eeglab2mne</span>
+<span class="kn">from</span> <span class="nn">pyeeg.models</span> <span class="kn">import</span> <span class="n">TRFEstimator</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># Set high logger level:</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+
+<span class="n">subj_id</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># id of participant (3 is subject P04)</span>
+<span class="n">story_id</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># id of stories (1 is AUNP02)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Single-subject,-single-story">
+<h2>Single subject, single story<a class="headerlink" href="#Single-subject,-single-story" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Import-EEG">
+<h3>Import EEG<a class="headerlink" href="#Import-EEG" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">gui</span> qt
+
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QFileDialog</span>
+
+<span class="k">def</span> <span class="nf">gui_fname</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Select a directory.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="nb">dir</span> <span class="o">=</span><span class="s1">&#39;./&#39;</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getExistingDirectory</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Select directory...&quot;</span><span class="p">,</span> <span class="nb">dir</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fname</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">experiment_path</span> <span class="o">=</span> <span class="s1">&#39;/media/hw2512/SeagateExpansionDrive/EEG_data/Katerina_experiment&#39;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/media/hw2512/SeagateExpansionDrive/EEG_data/Katerina_experiment&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">experiment_path</span> <span class="o">=</span> <span class="n">gui_fname</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">eeg_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_path</span><span class="p">,</span> <span class="s2">&quot;Processed/Fs-125/interp_bad/BP-0.3-65/Blink_pruned/&quot;</span><span class="p">)</span>
+<span class="n">list_subjects</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">)</span>
+<span class="n">eeg_fname</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj_id</span><span class="p">]))</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.set&#39;</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">event_id</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boundary</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">story_onset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">eeglab2mne</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj_id</span><span class="p">],</span> <span class="n">eeg_fname</span><span class="p">),</span> <span class="n">load_ica</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="n">event_id</span><span class="p">)</span>
+<span class="n">raw</span><span class="o">.</span><span class="n">pick_types</span><span class="p">(</span><span class="n">eeg</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Filtering the EEG</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Import-Word-level-features">
+<h3>Import Word-level features<a class="headerlink" href="#Import-Word-level-features" title="Permalink to this headline">¶</a></h3>
+<p>We will load <em>surprisal</em> feature and fit a TRF model on both <em>word onsets</em> and <em>surprisal</em> word features.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Import all paths</span>
+<span class="kn">from</span> <span class="nn">pyeeg.io</span> <span class="kn">import</span> <span class="n">WordLevelFeatures</span><span class="p">,</span> <span class="n">AlignedSpeech</span>
+
+<span class="n">stim_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_path</span><span class="p">,</span> <span class="s1">&#39;story_parts&#39;</span><span class="p">)</span>
+<span class="n">audio_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stim_path</span><span class="p">,</span> <span class="s1">&#39;alignement_data/&#39;</span><span class="p">)</span>
+<span class="n">syntfeat_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stim_path</span><span class="p">,</span> <span class="s1">&#39;syntactic_depth/&#39;</span><span class="p">)</span>
+<span class="n">list_synt_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">syntfeat_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">)]</span>
+<span class="n">list_stories</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;_allsynt.csv&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">list_synt_files</span><span class="p">]</span>
+<span class="n">list_audio_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">audio_path</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="s1">&#39;.wav&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">list_stories</span><span class="p">]</span>
+
+<span class="c1"># Sort them all in case:</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="p">[</span><span class="n">list_audio_files</span><span class="p">,</span> <span class="n">list_stories</span><span class="p">,</span> <span class="n">list_synt_files</span><span class="p">]:</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="n">onset_path</span> <span class="o">=</span> <span class="s1">&#39;./all_katerina_onsets.mat&#39;</span>
+<span class="n">onsets</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">onset_path</span><span class="p">)[</span><span class="s1">&#39;onsets&#39;</span><span class="p">]</span>
+
+<span class="c1"># Loading word onset and duration for AUNP02:</span>
+<span class="n">wo_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">syntfeat_path</span><span class="p">,</span> <span class="n">list_synt_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">])</span>
+<span class="n">duration_path</span> <span class="o">=</span> <span class="n">list_audio_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">]</span>
+<span class="n">synt_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">syntfeat_path</span><span class="p">,</span> <span class="n">list_synt_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Create word-level feature object:</span>
+<span class="n">speech</span> <span class="o">=</span> <span class="n">AlignedSpeech</span><span class="p">(</span><span class="n">path_audio</span><span class="o">=</span><span class="n">duration_path</span><span class="p">,</span> <span class="n">onset</span><span class="o">=</span><span class="n">onsets</span><span class="p">[</span><span class="n">subj_id</span><span class="p">,</span> <span class="n">story_id</span><span class="p">],</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">])</span>
+<span class="n">speech</span><span class="o">.</span><span class="n">create_word_level_features</span><span class="p">(</span><span class="n">use_wordonsets</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path_syntactic</span><span class="o">=</span><span class="n">synt_path</span><span class="p">,</span>
+                                 <span class="n">path_wordonsets</span><span class="o">=</span><span class="n">wo_path</span><span class="p">)</span>
+
+<span class="c1"># Creating feature matrix</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">feats</span><span class="o">.</span><span class="n">get_values</span><span class="p">()</span>
+
+<span class="c1"># Getting EEG data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+
+<span class="c1"># Croping data with indices that match current story for this participant</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">indices</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">indices</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Run-TRF-modelling">
+<h2>Run TRF modelling<a class="headerlink" href="#Run-TRF-modelling" title="Permalink to this headline">¶</a></h2>
+<p>The TRFEstimator class allows to use any arbitrary set of lags. The lagged time series design matrix will be generated when fitting the class instance to aligned EEG and feature data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># TRF instance</span>
+<span class="n">reg_param</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c1"># Ridge parameter</span>
+<span class="n">trf</span> <span class="o">=</span> <span class="n">TRFEstimator</span><span class="p">(</span><span class="n">tmin</span><span class="o">=-</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="n">reg_param</span><span class="p">)</span>
+
+<span class="c1"># Fit our model</span>
+<span class="n">trf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">feat_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Word Onsets&quot;</span><span class="p">,</span> <span class="s2">&quot;Depth&quot;</span><span class="p">,</span> <span class="s2">&quot;Open&quot;</span><span class="p">,</span> <span class="s2">&quot;Close&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
+       times=array([-0.592, -0.584, ...,  0.792,  0.8  ]), tmax=None,
+       tmin=None)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Plot model:</span>
+<span class="n">trf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feat_id</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">trf</span><span class="o">.</span><span class="n">n_feats_</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_TRF_syntactic_feats_12_0.png" src="../_images/examples_TRF_syntactic_feats_12_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Average-several-models">
+<h2>Average several models<a class="headerlink" href="#Average-several-models" title="Permalink to this headline">¶</a></h2>
+<p>Let’s loop the computation over all subjects and all stories to compute and grand average TRF.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">coefs</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Loop over subject</span>
+<span class="k">for</span> <span class="n">subj_id</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_subjects</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">30</span> <span class="o">+</span> <span class="s2">&quot; Processing subject </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">subj</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">eeg_fname</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj_id</span><span class="p">]))</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.set&#39;</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Import and process EEG:</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">eeglab2mne</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj_id</span><span class="p">],</span> <span class="n">eeg_fname</span><span class="p">),</span> <span class="n">load_ica</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="n">event_id</span><span class="p">)</span>
+    <span class="n">raw</span><span class="o">.</span><span class="n">pick_types</span><span class="p">(</span><span class="n">eeg</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+
+    <span class="c1"># Loop over stories</span>
+    <span class="k">for</span> <span class="n">story_id</span><span class="p">,</span> <span class="n">story</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_stories</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">4</span> <span class="o">+</span> <span class="s2">&quot;... </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">story</span><span class="p">))</span>
+        <span class="n">wo_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">syntfeat_path</span><span class="p">,</span> <span class="n">list_synt_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">])</span>
+        <span class="n">duration_path</span> <span class="o">=</span> <span class="n">list_audio_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">]</span>
+        <span class="n">synt_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">syntfeat_path</span><span class="p">,</span> <span class="n">list_synt_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">])</span>
+
+        <span class="c1"># Create word-level feature object:</span>
+        <span class="n">speech</span> <span class="o">=</span> <span class="n">AlignedSpeech</span><span class="p">(</span><span class="n">path_audio</span><span class="o">=</span><span class="n">duration_path</span><span class="p">,</span> <span class="n">onset</span><span class="o">=</span><span class="n">onsets</span><span class="p">[</span><span class="n">subj_id</span><span class="p">,</span> <span class="n">story_id</span><span class="p">],</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">])</span>
+        <span class="n">speech</span><span class="o">.</span><span class="n">create_word_level_features</span><span class="p">(</span><span class="n">use_wordonsets</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path_syntactic</span><span class="o">=</span><span class="n">synt_path</span><span class="p">,</span>
+                                         <span class="n">path_wordonsets</span><span class="o">=</span><span class="n">wo_path</span><span class="p">)</span>
+        <span class="c1"># Creating feature matrix</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">feats</span><span class="o">.</span><span class="n">get_values</span><span class="p">()</span>
+        <span class="c1"># Croping data with indices that match current story for this participant</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">indices</span>
+
+        <span class="c1"># Perform the fit:</span>
+        <span class="n">trf</span> <span class="o">=</span> <span class="n">TRFEstimator</span><span class="p">(</span><span class="n">tmin</span><span class="o">=-</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="n">reg_param</span><span class="p">)</span>
+        <span class="n">trf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">indices</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">feat_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Word Onsets&quot;</span><span class="p">,</span> <span class="s2">&quot;Depth&quot;</span><span class="p">,</span> <span class="s2">&quot;Open&quot;</span><span class="p">,</span> <span class="s2">&quot;Close&quot;</span><span class="p">])</span>
+
+        <span class="n">coefs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trf</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+============================== Processing subject P01_bis====================
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P02_11072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P03_12072016====================
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P04_13072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P05_14072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P06_18072016====================
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P07_19072016====================
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P08_21072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P09_22072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P10_14092016====================
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P12_01092016====================
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P13_08092016====================
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+============================== Processing subject P14_21032017====================
+                                ... AUNP01
+                                ... AUNP02
+                                ... AUNP03
+                                ... AUNP04
+                                ... AUNP05
+                                ... AUNP06
+                                ... AUNP07
+                                ... AUNP08
+                                ... BROP01
+                                ... BROP02
+                                ... BROP03
+                                ... FLOP01
+                                ... FLOP02
+                                ... FLOP03
+                                ... FLOP04
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Average and plug the resulting coef in trf instance for easy plotting</span>
+<span class="n">coef_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">coefs</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">trf</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">coef_avg</span>
+
+<span class="n">trf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feat_id</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">trf</span><span class="o">.</span><span class="n">n_feats_</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_TRF_syntactic_feats_15_0.png" src="../_images/examples_TRF_syntactic_feats_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Compute-one-big-model">
+<h2>Compute one <em>big</em> model<a class="headerlink" href="#Compute-one-big-model" title="Permalink to this headline">¶</a></h2>
+<p>Now, instead of computing a model for each story and each participants, we will compute one <em>grand</em> model trained on the concatenation of all data.</p>
+<p><strong>But…</strong> This is very greedy in memory. Indeed, storing all the EEG data results in a matrix of roughly 2Gb, then the matrix of features, for two features is approximately 100mb, which then results in a design matrix (i.e. time-lagged version of the features) of 12Gb. The latter is then used in different computation, svd or least-square esitmation, which may involve another copy of the matrix… Hence the memory usage can reach a total of 26Gb!!</p>
+<p>However it will give a more robust estimate of the TRFs. Fortunately, the implementation of our TRF estimator, allows for a memory-efficient way to compute the coefficient.</p>
+<p>The trick used is to accumulate the covariance and cross-covariance matrices used to compute the pseudo-inverse to fit the model. Thus we cut the bulk of the computation (SVD computation) in smaller pieces. Also it can be noted that since the target is always the same (word from stories, similar across participants) the concatenated word-level features can be stored only once and reused to compute the other matrices.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Loop over stories to get a big concatenation of each story&#39;s word features</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">wf</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># make a dictionnary of those, keys are story id</span>
+<span class="k">for</span> <span class="n">story_id</span><span class="p">,</span> <span class="n">story</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_stories</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading story&#39;s word features for ... </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">story</span><span class="p">))</span>
+    <span class="n">wo_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">syntfeat_path</span><span class="p">,</span> <span class="n">list_synt_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">])</span>
+    <span class="n">duration_path</span> <span class="o">=</span> <span class="n">list_audio_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">]</span>
+    <span class="n">synt_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">syntfeat_path</span><span class="p">,</span> <span class="n">list_synt_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">])</span>
+
+    <span class="c1"># Create word-level feature object:</span>
+    <span class="n">wf</span><span class="p">[</span><span class="n">story</span><span class="p">]</span> <span class="o">=</span> <span class="n">WordLevelFeatures</span><span class="p">(</span><span class="n">path_audio</span><span class="o">=</span><span class="n">duration_path</span><span class="p">,</span> <span class="n">path_wordonsets</span><span class="o">=</span><span class="n">wo_path</span><span class="p">,</span> <span class="n">path_syntactic</span><span class="o">=</span><span class="n">synt_path</span><span class="p">)</span>
+    <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wf</span><span class="p">[</span><span class="n">story</span><span class="p">]</span><span class="o">.</span><span class="n">align_word_features</span><span class="p">(</span><span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">],</span> <span class="n">features</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;depth&#39;</span><span class="p">,</span><span class="s1">&#39;open&#39;</span><span class="p">,</span><span class="s1">&#39;close&#39;</span><span class="p">)))</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Loading story&#39;s word features for ... AUNP01
+Loading story&#39;s word features for ... AUNP02
+Loading story&#39;s word features for ... AUNP03
+Loading story&#39;s word features for ... AUNP04
+Loading story&#39;s word features for ... AUNP05
+Loading story&#39;s word features for ... AUNP06
+Loading story&#39;s word features for ... AUNP07
+Loading story&#39;s word features for ... AUNP08
+Loading story&#39;s word features for ... BROP01
+Loading story&#39;s word features for ... BROP02
+Loading story&#39;s word features for ... BROP03
+Loading story&#39;s word features for ... FLOP01
+Loading story&#39;s word features for ... FLOP02
+Loading story&#39;s word features for ... FLOP03
+Loading story&#39;s word features for ... FLOP04
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Loop over subject</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">subj_id</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_subjects</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">30</span> <span class="o">+</span> <span class="s2">&quot; Processing subject </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">subj</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">eeg_fname</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj_id</span><span class="p">]))</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.set&#39;</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Import and process EEG:</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">eeglab2mne</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj_id</span><span class="p">],</span> <span class="n">eeg_fname</span><span class="p">),</span> <span class="n">load_ica</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="n">event_id</span><span class="p">)</span>
+    <span class="n">raw</span><span class="o">.</span><span class="n">pick_types</span><span class="p">(</span><span class="n">eeg</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">AlignedSpeech</span><span class="p">(</span><span class="n">path_audio</span><span class="o">=</span><span class="n">list_audio_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">],</span>
+                                                       <span class="n">onset</span><span class="o">=</span><span class="n">onsets</span><span class="p">[</span><span class="n">subj_id</span><span class="p">,</span> <span class="n">story_id</span><span class="p">],</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">story_id</span><span class="p">,</span> <span class="n">story</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_stories</span><span class="p">)])</span><span class="o">.</span><span class="n">indices</span>
+    <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zscore</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="n">indices</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+============================== Processing subject P01_bis====================
+============================== Processing subject P02_11072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+============================== Processing subject P03_12072016====================
+============================== Processing subject P04_13072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+============================== Processing subject P05_14072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+============================== Processing subject P06_18072016====================
+============================== Processing subject P07_19072016====================
+============================== Processing subject P08_21072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+============================== Processing subject P09_22072016====================
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/hw2512/MachineLearning/Playground/EEG Analysis/pyEEG/pyeeg/io.py:184: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+============================== Processing subject P10_14092016====================
+============================== Processing subject P12_01092016====================
+============================== Processing subject P13_08092016====================
+============================== Processing subject P14_21032017====================
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Perform the fit:</span>
+<span class="n">trf</span> <span class="o">=</span> <span class="n">TRFEstimator</span><span class="p">(</span><span class="n">tmin</span><span class="o">=-</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="n">trf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">feat_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Word Onsets&quot;</span><span class="p">,</span> <span class="s2">&quot;Depth&quot;</span><span class="p">,</span> <span class="s2">&quot;Open&quot;</span><span class="p">,</span> <span class="s2">&quot;Close&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
+       times=array([-0.592, -0.584, ...,  0.792,  0.8  ]), tmax=None,
+       tmin=None)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">trf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feat_id</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_TRF_syntactic_feats_20_0.png" src="../_images/examples_TRF_syntactic_feats_20_0.png" />
+</div>
+</div>
+<div class="section" id="Comparing-with-MNE-ReceptiveField">
+<h3>Comparing with MNE-ReceptiveField<a class="headerlink" href="#Comparing-with-MNE-ReceptiveField" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">mne.decoding</span> <span class="kn">import</span> <span class="n">ReceptiveField</span><span class="p">,</span> <span class="n">TimeDelayingRidge</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">normalize</span> <span class="k">as</span> <span class="n">zscore</span>
+<span class="kn">import</span> <span class="nn">mne</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Define the delays that we will use in the receptive field</span>
+<span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span>
+<span class="n">feat_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Word Onsets&quot;</span><span class="p">,</span> <span class="s2">&quot;Depth&quot;</span><span class="p">,</span> <span class="s2">&quot;Open&quot;</span><span class="p">,</span> <span class="s2">&quot;Close&quot;</span><span class="p">]</span>
+<span class="n">n_feats</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">feat_name</span><span class="p">)</span>
+<span class="n">sfreq</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">]</span>
+
+<span class="c1"># Initialize the model</span>
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">TimeDelayingRidge</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">sfreq</span><span class="p">,</span> <span class="c1">#reg_type=&#39;laplacian&#39;,</span>
+                                  <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">ReceptiveField</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">],</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">feat_name</span><span class="p">,</span>
+                    <span class="n">estimator</span><span class="o">=</span><span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+<span class="c1"># We&#39;ll have (tmax - tmin) * sfreq delays</span>
+<span class="c1"># and an extra 2 delays since we are inclusive on the beginning / end index</span>
+<span class="n">n_delays</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">tmax</span> <span class="o">-</span> <span class="n">tmin</span><span class="p">)</span> <span class="o">*</span> <span class="n">sfreq</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">64</span>
+
+<span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="p">)</span>
+
+<span class="n">mean_coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">list_subjects</span><span class="p">),</span> <span class="n">n_channels</span><span class="p">,</span> <span class="n">n_feats</span><span class="p">,</span> <span class="n">n_delays</span><span class="p">))</span>
+<span class="n">mean_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">list_subjects</span><span class="p">),</span> <span class="n">n_channels</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_subjects</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimation of coefficients for subject </span><span class="si">{:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list_subjects</span><span class="p">[</span><span class="n">subj</span><span class="p">]))</span>
+    <span class="n">list_datafiles</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj</span><span class="p">]))</span>
+    <span class="n">eeg_fname</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">list_datafiles</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.set&#39;</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">eeg</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">eeglab</span><span class="o">.</span><span class="n">read_raw_eeglab</span><span class="p">(</span><span class="n">input_fname</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj</span><span class="p">],</span> <span class="n">eeg_fname</span><span class="p">),</span> <span class="n">montage</span><span class="o">=</span><span class="s1">&#39;standard_1020&#39;</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="n">event_id</span><span class="p">,</span> <span class="n">preload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">eeg</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">h_trans_bandwidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">eeg</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">pick_types</span><span class="p">(</span><span class="n">eeg</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">AlignedSpeech</span><span class="p">(</span><span class="n">path_audio</span><span class="o">=</span><span class="n">list_audio_files</span><span class="p">[</span><span class="n">story_id</span><span class="p">],</span>
+                                                       <span class="n">onset</span><span class="o">=</span><span class="n">onsets</span><span class="p">[</span><span class="n">subj</span><span class="p">,</span> <span class="n">story_id</span><span class="p">],</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">story_id</span><span class="p">,</span> <span class="n">story</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_stories</span><span class="p">)])</span><span class="o">.</span><span class="n">indices</span>
+
+    <span class="c1"># Prepare model data (make time the first dimension)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">indices</span><span class="p">]</span>  <span class="c1"># Outputs for the model</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">zscore</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+    <span class="c1"># Iterate through splits, fit the model, and predict/test on held-out data</span>
+    <span class="n">coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_splits</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">,</span> <span class="n">n_feats</span><span class="p">,</span> <span class="n">n_delays</span><span class="p">))</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_splits</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;split </span><span class="si">%s</span><span class="s1"> / </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_splits</span><span class="p">))</span>
+        <span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">train</span><span class="p">])</span>
+        <span class="n">scores</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+        <span class="c1"># coef_ is shape (n_outputs, n_features, n_delays)</span>
+        <span class="n">coefs</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">coef_</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">delays_</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">rf</span><span class="o">.</span><span class="n">sfreq</span><span class="p">)</span>
+
+    <span class="c1"># Average scores and coefficients across CV splits</span>
+    <span class="n">mean_coefs</span><span class="p">[</span><span class="n">subj</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefs</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">mean_scores</span><span class="p">[</span><span class="n">subj</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Estimation of coefficients for subject P01_bis
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P02_11072016
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-32-2e5065e9feea&gt;:27: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  eeg = mne.io.eeglab.read_raw_eeglab(input_fname=os.path.join(eeg_path, list_subjects[subj], eeg_fname), montage=&#39;standard_1020&#39;, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P03_12072016
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P04_13072016
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-32-2e5065e9feea&gt;:27: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  eeg = mne.io.eeglab.read_raw_eeglab(input_fname=os.path.join(eeg_path, list_subjects[subj], eeg_fname), montage=&#39;standard_1020&#39;, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P05_14072016
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-32-2e5065e9feea&gt;:27: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  eeg = mne.io.eeglab.read_raw_eeglab(input_fname=os.path.join(eeg_path, list_subjects[subj], eeg_fname), montage=&#39;standard_1020&#39;, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P06_18072016
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P07_19072016
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P08_21072016
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-32-2e5065e9feea&gt;:27: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  eeg = mne.io.eeglab.read_raw_eeglab(input_fname=os.path.join(eeg_path, list_subjects[subj], eeg_fname), montage=&#39;standard_1020&#39;, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P09_22072016
+1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-32-2e5065e9feea&gt;:27: RuntimeWarning: 1 events will be dropped because they occur on the same time sample as another event. `mne.io.Raw` objects store events on an event channel, which cannot represent two events on the same sample. You can extract the original event structure using `mne.io.eeglab.read_events_eeglab`. Then, you can e.g. subset the extracted events for constructing epochs.
+  eeg = mne.io.eeglab.read_raw_eeglab(input_fname=os.path.join(eeg_path, list_subjects[subj], eeg_fname), montage=&#39;standard_1020&#39;, event_id=event_id, preload=True)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P10_14092016
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P12_01092016
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P13_08092016
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+Estimation of coefficients for subject P14_21032017
+split 1 / 5
+split 2 / 5
+split 3 / 5
+split 4 / 5
+split 5 / 5
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">grand_avg_coefs</span> <span class="o">=</span> <span class="n">mean_coefs</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span>
+
+<span class="c1"># Print mean coefficients across all time delays / channels (see Fig 1 in [1])</span>
+<span class="n">time_plot</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.072</span><span class="p">,</span> <span class="mf">0.300</span><span class="p">,</span> <span class="mf">0.350</span><span class="p">,</span> <span class="mf">0.050</span><span class="p">]</span>  <span class="c1"># For highlighting a specific time.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">n_feats</span> <span class="o">*</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">n_feats</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=.</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">f_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feat_name</span><span class="p">):</span>
+    <span class="n">max_coef</span> <span class="o">=</span> <span class="n">grand_avg_coefs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="c1">#ax[0].pcolormesh(times, ix_chs, mean_coefs, cmap=cmap,</span>
+    <span class="c1">#              vmin=-max_coef, vmax=max_coef, shading=&#39;gouraud&#39;)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">grand_avg_coefs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span><span class="p">);</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">time_plot</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Delay (s)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Amplitude (a.u.)&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">f_name</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+    <span class="c1">#mne.viz.tight_layout()</span>
+
+    <span class="c1"># Make a topographic map of coefficients for a given delay (see Fig 2C in [1])</span>
+    <span class="n">ix_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">time_plot</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">times</span><span class="p">))</span>
+    <span class="n">im</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plot_topomap</span><span class="p">(</span><span class="n">grand_avg_coefs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">,</span> <span class="n">ix_plot</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="n">eeg</span><span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">contours</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                         <span class="n">vmin</span><span class="o">=-</span><span class="n">max_coef</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">max_coef</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">res</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="c1"># Transform head contour in white:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_lines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Topomap of model coefficients</span><span class="se">\n</span><span class="s2">for delay </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">time_plot</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="c1">#mne.viz.tight_layout()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_TRF_syntactic_feats_24_0.png" src="../_images/examples_TRF_syntactic_feats_24_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../io.html" class="btn btn-neutral float-right" title="IO module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="import_WordVectors.html" class="btn btn-neutral float-left" title="Loading WordVectors as word level features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Hugo Weissbart
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

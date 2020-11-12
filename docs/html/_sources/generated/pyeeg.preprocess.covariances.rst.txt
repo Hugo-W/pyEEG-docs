@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.preprocess`.covariances
+================================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. autofunction:: covariances
+
+.. raw:: html
+
+    <div class="clearer"></div>

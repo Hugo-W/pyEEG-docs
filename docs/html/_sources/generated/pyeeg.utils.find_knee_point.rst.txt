@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.find_knee_point
+===============================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: find_knee_point
+
+.. raw:: html
+
+    <div class="clearer"></div>

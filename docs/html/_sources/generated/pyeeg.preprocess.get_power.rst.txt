@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.preprocess`.get_power
+==============================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. autofunction:: get_power
+
+.. raw:: html
+
+    <div class="clearer"></div>

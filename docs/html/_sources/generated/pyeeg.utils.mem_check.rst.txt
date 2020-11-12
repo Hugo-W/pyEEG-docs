@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.mem_check
+=========================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: mem_check
+
+.. raw:: html
+
+    <div class="clearer"></div>

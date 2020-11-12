@@ -1,0 +1,10 @@
+:mod:`pyeeg.mcca`.mCCA.fit
+=======================================
+
+.. currentmodule:: pyeeg.mcca
+
+.. automethod:: mCCA.fit
+
+.. raw:: html
+
+    <div class="clearer"></div>

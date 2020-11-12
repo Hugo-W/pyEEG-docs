@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.utils`.moving_average
+==============================================
+
+.. currentmodule:: pyeeg.utils
+
+.. autofunction:: moving_average
+
+.. raw:: html
+
+    <div class="clearer"></div>

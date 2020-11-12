@@ -1,0 +1,10 @@
+:mod:`pyeeg.mcca`.mCCA.canonical_correlate_single
+==============================================================
+
+.. currentmodule:: pyeeg.mcca
+
+.. automethod:: mCCA.canonical_correlate_single
+
+.. raw:: html
+
+    <div class="clearer"></div>
