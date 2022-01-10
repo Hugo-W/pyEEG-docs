@@ -3,22 +3,28 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>TRF on Syntactic Features &mdash; pyEEG 1.1a documentation</title>
+  <title>TRF on Syntactic Features &mdash; pyEEG 1.2a documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -28,13 +34,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -60,7 +66,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+            <a href="../index.html" class="icon icon-home"> pyEEG
           
 
           
@@ -73,7 +79,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -171,6 +177,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -184,7 +192,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/examples/TRF_syntactic_feats.ipynb.txt" rel="nofollow"> View page source</a>
           
         
@@ -203,21 +211,35 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
-    background: none;
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
     border: none;
-    padding: 0 0;
+    padding: 0;
     margin: 0;
     box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -318,7 +340,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
 }
 
 /* override MathJax center alignment in output cells */
@@ -384,6 +406,7 @@ div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
     padding: 5px;
+    margin: 0;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -393,7 +416,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -453,15 +476,14 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="TRF-on-Syntactic-Features">
+<section id="TRF-on-Syntactic-Features">
 <h1>TRF on Syntactic Features<a class="headerlink" href="#TRF-on-Syntactic-Features" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we show how to import word onset as a word-level feature and compute TRF from them.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">zscore</span>
@@ -477,16 +499,15 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Single-subject,-single-story">
+<section id="Single-subject,-single-story">
 <h2>Single subject, single story<a class="headerlink" href="#Single-subject,-single-story" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Import-EEG">
+<section id="Import-EEG">
 <h3>Import EEG<a class="headerlink" href="#Import-EEG" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">gui</span> qt
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">gui</span> qt
 
 <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QFileDialog</span>
 
@@ -502,8 +523,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">try</span><span class="p">:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">experiment_path</span> <span class="o">=</span> <span class="s1">&#39;/media/hw2512/SeagateExpansionDrive/EEG_data/Katerina_experiment&#39;</span>
     <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/media/hw2512/SeagateExpansionDrive/EEG_data/Katerina_experiment&#39;</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>
@@ -515,8 +535,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">eeg_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_path</span><span class="p">,</span> <span class="s2">&quot;Processed/Fs-125/interp_bad/BP-0.3-65/Blink_pruned/&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eeg_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_path</span><span class="p">,</span> <span class="s2">&quot;Processed/Fs-125/interp_bad/BP-0.3-65/Blink_pruned/&quot;</span><span class="p">)</span>
 <span class="n">list_subjects</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">)</span>
 <span class="n">eeg_fname</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">eeg_path</span><span class="p">,</span> <span class="n">list_subjects</span><span class="p">[</span><span class="n">subj_id</span><span class="p">]))</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.set&#39;</span><span class="p">)][</span><span class="mi">0</span><span class="p">]</span>
 
@@ -546,16 +565,15 @@ div.rendered_html tbody tr:hover {
   raw = mne.io.read_raw_eeglab(input_fname=fname, montage=montage_mne, event_id=event_id, preload=True)
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Import-Word-level-features">
+</section>
+<section id="Import-Word-level-features">
 <h3>Import Word-level features<a class="headerlink" href="#Import-Word-level-features" title="Permalink to this headline">¶</a></h3>
 <p>We will load <em>surprisal</em> feature and fit a TRF model on both <em>word onsets</em> and <em>surprisal</em> word features.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Import all paths</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import all paths</span>
 <span class="kn">from</span> <span class="nn">pyeeg.io</span> <span class="kn">import</span> <span class="n">WordLevelFeatures</span><span class="p">,</span> <span class="n">AlignedSpeech</span>
 
 <span class="n">stim_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_path</span><span class="p">,</span> <span class="s1">&#39;story_parts&#39;</span><span class="p">)</span>
@@ -583,8 +601,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Create word-level feature object:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create word-level feature object:</span>
 <span class="n">speech</span> <span class="o">=</span> <span class="n">AlignedSpeech</span><span class="p">(</span><span class="n">path_audio</span><span class="o">=</span><span class="n">duration_path</span><span class="p">,</span> <span class="n">onset</span><span class="o">=</span><span class="n">onsets</span><span class="p">[</span><span class="n">subj_id</span><span class="p">,</span> <span class="n">story_id</span><span class="p">],</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">])</span>
 <span class="n">speech</span><span class="o">.</span><span class="n">create_word_level_features</span><span class="p">(</span><span class="n">use_wordonsets</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path_syntactic</span><span class="o">=</span><span class="n">synt_path</span><span class="p">,</span>
                                  <span class="n">path_wordonsets</span><span class="o">=</span><span class="n">wo_path</span><span class="p">)</span>
@@ -601,17 +618,16 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Run-TRF-modelling">
+</section>
+</section>
+<section id="Run-TRF-modelling">
 <h2>Run TRF modelling<a class="headerlink" href="#Run-TRF-modelling" title="Permalink to this headline">¶</a></h2>
 <p>The TRFEstimator class allows to use any arbitrary set of lags. The lagged time series design matrix will be generated when fitting the class instance to aligned EEG and feature data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># TRF instance</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TRF instance</span>
 <span class="n">reg_param</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c1"># Ridge parameter</span>
 <span class="n">trf</span> <span class="o">=</span> <span class="n">TRFEstimator</span><span class="p">(</span><span class="n">tmin</span><span class="o">=-</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="n">reg_param</span><span class="p">)</span>
 
@@ -635,8 +651,7 @@ TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Plot model:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot model:</span>
 <span class="n">trf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feat_id</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">trf</span><span class="o">.</span><span class="n">n_feats_</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -648,16 +663,15 @@ TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
 <img alt="../_images/examples_TRF_syntactic_feats_12_0.png" src="../_images/examples_TRF_syntactic_feats_12_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Average-several-models">
+</section>
+<section id="Average-several-models">
 <h2>Average several models<a class="headerlink" href="#Average-several-models" title="Permalink to this headline">¶</a></h2>
 <p>Let’s loop the computation over all subjects and all stories to compute and grand average TRF.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">coefs</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coefs</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Loop over subject</span>
 <span class="k">for</span> <span class="n">subj_id</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_subjects</span><span class="p">):</span>
@@ -998,8 +1012,7 @@ TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Average and plug the resulting coef in trf instance for easy plotting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Average and plug the resulting coef in trf instance for easy plotting</span>
 <span class="n">coef_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">coefs</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">trf</span><span class="o">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">coef_avg</span>
 
@@ -1014,8 +1027,8 @@ TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
 <img alt="../_images/examples_TRF_syntactic_feats_15_0.png" src="../_images/examples_TRF_syntactic_feats_15_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="Compute-one-big-model">
+</section>
+<section id="Compute-one-big-model">
 <h2>Compute one <em>big</em> model<a class="headerlink" href="#Compute-one-big-model" title="Permalink to this headline">¶</a></h2>
 <p>Now, instead of computing a model for each story and each participants, we will compute one <em>grand</em> model trained on the concatenation of all data.</p>
 <p><strong>But…</strong> This is very greedy in memory. Indeed, storing all the EEG data results in a matrix of roughly 2Gb, then the matrix of features, for two features is approximately 100mb, which then results in a design matrix (i.e. time-lagged version of the features) of 12Gb. The latter is then used in different computation, svd or least-square esitmation, which may involve another copy of the matrix… Hence the memory usage can reach a total of 26Gb!!</p>
@@ -1025,8 +1038,7 @@ TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Loop over stories to get a big concatenation of each story&#39;s word features</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop over stories to get a big concatenation of each story&#39;s word features</span>
 <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">wf</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># make a dictionnary of those, keys are story id</span>
 <span class="k">for</span> <span class="n">story_id</span><span class="p">,</span> <span class="n">story</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_stories</span><span class="p">):</span>
@@ -1069,8 +1081,7 @@ Loading story&#39;s word features for ... FLOP04
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Loop over subject</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop over subject</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">subj_id</span><span class="p">,</span> <span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_subjects</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">30</span> <span class="o">+</span> <span class="s2">&quot; Processing subject </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">subj</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
@@ -1196,8 +1207,7 @@ Loading story&#39;s word features for ... FLOP04
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Perform the fit:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform the fit:</span>
 <span class="n">trf</span> <span class="o">=</span> <span class="n">TRFEstimator</span><span class="p">(</span><span class="n">tmin</span><span class="o">=-</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">srate</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;sfreq&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
 <span class="n">trf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">feat_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Word Onsets&quot;</span><span class="p">,</span> <span class="s2">&quot;Depth&quot;</span><span class="p">,</span> <span class="s2">&quot;Open&quot;</span><span class="p">,</span> <span class="s2">&quot;Close&quot;</span><span class="p">])</span>
 </pre></div>
@@ -1218,8 +1228,7 @@ TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">trf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feat_id</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feat_id</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1230,14 +1239,13 @@ TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
 <img alt="../_images/examples_TRF_syntactic_feats_20_0.png" src="../_images/examples_TRF_syntactic_feats_20_0.png" />
 </div>
 </div>
-<div class="section" id="Comparing-with-MNE-ReceptiveField">
+<section id="Comparing-with-MNE-ReceptiveField">
 <h3>Comparing with MNE-ReceptiveField<a class="headerlink" href="#Comparing-with-MNE-ReceptiveField" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">mne.decoding</span> <span class="kn">import</span> <span class="n">ReceptiveField</span><span class="p">,</span> <span class="n">TimeDelayingRidge</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mne.decoding</span> <span class="kn">import</span> <span class="n">ReceptiveField</span><span class="p">,</span> <span class="n">TimeDelayingRidge</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">normalize</span> <span class="k">as</span> <span class="n">zscore</span>
 <span class="kn">import</span> <span class="nn">mne</span>
@@ -1248,8 +1256,7 @@ TRFEstimator(alpha=0.0, fit_intercept=True, srate=125.0,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Define the delays that we will use in the receptive field</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the delays that we will use in the receptive field</span>
 <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span> <span class="o">=</span> <span class="o">-.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span>
 <span class="n">feat_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Word Onsets&quot;</span><span class="p">,</span> <span class="s2">&quot;Depth&quot;</span><span class="p">,</span> <span class="s2">&quot;Open&quot;</span><span class="p">,</span> <span class="s2">&quot;Close&quot;</span><span class="p">]</span>
 <span class="n">n_feats</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">feat_name</span><span class="p">)</span>
@@ -1478,8 +1485,7 @@ split 5 / 5
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">grand_avg_coefs</span> <span class="o">=</span> <span class="n">mean_coefs</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grand_avg_coefs</span> <span class="o">=</span> <span class="n">mean_coefs</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span>
 
 <span class="c1"># Print mean coefficients across all time delays / channels (see Fig 1 in [1])</span>
@@ -1516,46 +1522,38 @@ split 5 / 5
 <img alt="../_images/examples_TRF_syntactic_feats_24_0.png" src="../_images/examples_TRF_syntactic_feats_24_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../io.html" class="btn btn-neutral float-right" title="IO module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="import_WordVectors.html" class="btn btn-neutral float-left" title="Loading WordVectors as word level features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../io.html" class="btn btn-neutral float-right" title="IO module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="import_WordVectors.html" class="btn btn-neutral float-left" title="Loading WordVectors as word level features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019, Hugo Weissbart
+        &#169; Copyright 2019, Hugo Weissbart.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

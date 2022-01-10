@@ -1,0 +1,10 @@
+:mod:`pyeeg.models`.TRFEstimator.save
+==================================================
+
+.. currentmodule:: pyeeg.models
+
+.. automethod:: TRFEstimator.save
+
+.. raw:: html
+
+    <div class="clearer"></div>

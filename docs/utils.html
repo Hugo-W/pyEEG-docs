@@ -3,22 +3,28 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Utilities &mdash; pyEEG 1.1a documentation</title>
+  <title>Utilities &mdash; pyEEG 1.2a documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -28,13 +34,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -60,7 +64,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+            <a href="index.html" class="icon icon-home"> pyEEG
           
 
           
@@ -73,7 +77,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -111,19 +115,28 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Utilities</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.lag_matrix.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.lag_span.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_span</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.lag_sparse.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_sparse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.fir_order.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.fir_order</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.mem_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.mem_check</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.rolling_func.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.rolling_func</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.moving_average.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.moving_average</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.signal_envelope.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.signal_envelope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.chunk_data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.chunk_data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.shift_array.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.shift_array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.is_pos_def.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.is_pos_def</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils.find_knee_point.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.find_knee_point</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.utils._is_1d.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>._is_1d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#array-manipulation">Array manipulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.lag_matrix.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.lag_span.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_span</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.lag_sparse.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_sparse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.rolling_func.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.rolling_func</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.moving_average.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.moving_average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.chunk_data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.chunk_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.shift_array.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.shift_array</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#signal">Signal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.signal_envelope.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.signal_envelope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.fir_order.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.fir_order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.find_knee_point.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.find_knee_point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.is_pos_def.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.is_pos_def</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other">Other</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils.mem_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.mem_check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/pyeeg.utils._is_1d.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>._is_1d</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -173,6 +186,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -184,7 +199,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -222,15 +237,15 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="module-pyeeg.utils">
+<section id="module-pyeeg.utils">
 <span id="utilities"></span><h1>Utilities<a class="headerlink" href="#module-pyeeg.utils" title="Permalink to this headline">¶</a></h1>
 <p>This module contains some utilities functions for data manipulation in general,
 signal processing or/and text processing.
 For instance function to create a matrix of lagged-time series for input to our
 forward and backward models.</p>
-<p>Also, utilities functions to apply _rolling_ methods (rolling average, variance, or so on)
+<p>Also, utilities functions to apply <em>rolling</em> methods (rolling average, variance, or so on)
 wiht the NumPy <strong>side trick</strong> see <a class="reference external" href="https://ipython-books.github.io/47-implementing-an-efficient-rolling-average-algorithm-with-stride-tricks/">the Python Cookbook recipee</a> for more details.</p>
-<div class="section" id="classes">
+<section id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -240,9 +255,12 @@ wiht the NumPy <strong>side trick</strong> see <a class="reference external" hre
 <tbody>
 </tbody>
 </table>
-</div>
-<div class="section" id="functions">
+</section>
+<section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<section id="array-manipulation">
+<h3>Array manipulation<a class="headerlink" href="#array-manipulation" title="Permalink to this headline">¶</a></h3>
+<p>Utils functions to create shifted version of an array, rolling or moving views along axis, etc.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -258,77 +276,94 @@ wiht the NumPy <strong>side trick</strong> see <a class="reference external" hre
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.lag_sparse.html#pyeeg.utils.lag_sparse" title="pyeeg.utils.lag_sparse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.lag_sparse</span></code></a>(times[, srate])</p></td>
 <td><p>Create an array of lags for the requested time point in <cite>times</cite>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils.fir_order.html#pyeeg.utils.fir_order" title="pyeeg.utils.fir_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.fir_order</span></code></a>(tbw, srate[, atten, …])</p></td>
-<td><p>Estimate FIR Type II filter order (order will be odd).</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.mem_check.html#pyeeg.utils.mem_check" title="pyeeg.utils.mem_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.mem_check</span></code></a>([units])</p></td>
-<td><p>Get available RAM</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils.rolling_func.html#pyeeg.utils.rolling_func" title="pyeeg.utils.rolling_func"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.rolling_func</span></code></a>(func, data[, …])</p></td>
 <td><p>Apply a function on a rolling window on the data</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.moving_average.html#pyeeg.utils.moving_average" title="pyeeg.utils.moving_average"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.moving_average</span></code></a>(data[, winsize])</p></td>
 <td><p>#TODO: pad before calling chunk_data?</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils.signal_envelope.html#pyeeg.utils.signal_envelope" title="pyeeg.utils.signal_envelope"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.signal_envelope</span></code></a>(signal, srate[, …])</p></td>
-<td><p>Compute the broadband envelope of the input signal.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.chunk_data.html#pyeeg.utils.chunk_data" title="pyeeg.utils.chunk_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.chunk_data</span></code></a>(data, window_size[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils.chunk_data.html#pyeeg.utils.chunk_data" title="pyeeg.utils.chunk_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.chunk_data</span></code></a>(data, window_size[, …])</p></td>
 <td><p>Nd array version of <a class="reference internal" href="generated/pyeeg.utils.shift_array.html#pyeeg.utils.shift_array" title="pyeeg.utils.shift_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">shift_array()</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils.shift_array.html#pyeeg.utils.shift_array" title="pyeeg.utils.shift_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.shift_array</span></code></a>(arr[, win, overlap, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.shift_array.html#pyeeg.utils.shift_array" title="pyeeg.utils.shift_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.shift_array</span></code></a>(arr[, win, overlap, …])</p></td>
 <td><p>Returns segments of an array (overlapping moving windows) using the <cite>as_strided</cite> function from NumPy.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.is_pos_def.html#pyeeg.utils.is_pos_def" title="pyeeg.utils.is_pos_def"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.is_pos_def</span></code></a>(A)</p></td>
-<td><p>Check if matrix is positive definite</p></td>
+</tbody>
+</table>
+</section>
+<section id="signal">
+<h3>Signal<a class="headerlink" href="#signal" title="Permalink to this headline">¶</a></h3>
+<p>Signal processing related.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.signal_envelope.html#pyeeg.utils.signal_envelope" title="pyeeg.utils.signal_envelope"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.signal_envelope</span></code></a>(signal, srate[, …])</p></td>
+<td><p>Compute the broadband envelope of the input signal.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils.find_knee_point.html#pyeeg.utils.find_knee_point" title="pyeeg.utils.find_knee_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.find_knee_point</span></code></a>(x, y[, tol, plot])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils.fir_order.html#pyeeg.utils.fir_order" title="pyeeg.utils.fir_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.fir_order</span></code></a>(tbw, srate[, atten, …])</p></td>
+<td><p>Estimate FIR Type II filter order (order will be odd).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.find_knee_point.html#pyeeg.utils.find_knee_point" title="pyeeg.utils.find_knee_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.find_knee_point</span></code></a>(x, y[, tol, plot])</p></td>
 <td><p>Function to find elbow or knee point (minimum local curvature) in a curve.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils._is_1d.html#pyeeg.utils._is_1d" title="pyeeg.utils._is_1d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils._is_1d</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils.is_pos_def.html#pyeeg.utils.is_pos_def" title="pyeeg.utils.is_pos_def"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.is_pos_def</span></code></a>(A)</p></td>
+<td><p>Check if matrix is positive definite</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h3>
+<p>Miscelaneous, e.g. system related, or characterisation…</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.utils.mem_check.html#pyeeg.utils.mem_check" title="pyeeg.utils.mem_check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils.mem_check</span></code></a>([units])</p></td>
+<td><p>Get available RAM</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.utils._is_1d.html#pyeeg.utils._is_1d" title="pyeeg.utils._is_1d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.utils._is_1d</span></code></a>(arr)</p></td>
 <td><p>Short utility function to check if an array is vector-like</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="generated/pyeeg.utils.lag_matrix.html" class="btn btn-neutral float-right" title="pyeeg.utils.lag_matrix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="generated/pyeeg.models._svd_regress.html" class="btn btn-neutral float-left" title="pyeeg.models._svd_regress" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="generated/pyeeg.utils.lag_matrix.html" class="btn btn-neutral float-right" title="pyeeg.utils.lag_matrix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="generated/pyeeg.models._svd_regress.html" class="btn btn-neutral float-left" title="pyeeg.models._svd_regress" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019, Hugo Weissbart
+        &#169; Copyright 2019, Hugo Weissbart.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

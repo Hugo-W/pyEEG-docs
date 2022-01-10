@@ -17,6 +17,8 @@ Methods
         
             MultichanWienerFilter.fit
             MultichanWienerFilter.fit_transform
+            MultichanWienerFilter.get_params
+            MultichanWienerFilter.set_params
             MultichanWienerFilter.transorm
    
 

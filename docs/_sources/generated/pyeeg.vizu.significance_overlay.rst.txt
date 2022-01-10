@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.vizu`.significance_overlay
+===================================================
+
+.. currentmodule:: pyeeg.vizu
+
+.. autofunction:: significance_overlay
+
+.. raw:: html
+
+    <div class="clearer"></div>

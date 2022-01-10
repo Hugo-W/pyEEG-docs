@@ -3,22 +3,28 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Tutorials &mdash; pyEEG 1.1a documentation</title>
+  <title>Tutorials &mdash; pyEEG 1.2a documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -28,13 +34,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -60,7 +64,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+            <a href="index.html" class="icon icon-home"> pyEEG
           
 
           
@@ -73,7 +77,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -165,6 +169,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -176,7 +182,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/tutorials.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -214,23 +220,23 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="tutorials">
+<section id="tutorials">
 <h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="loading-word-level-features">
+<section id="loading-word-level-features">
 <h2>Loading Word-level features<a class="headerlink" href="#loading-word-level-features" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyeeg.io</span> <span class="kn">import</span> <span class="n">AlignedSpeech</span>
 <span class="n">speech</span> <span class="o">=</span> <span class="n">AlignedSpeech</span><span class="p">(</span><span class="n">onset</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">srate</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span> <span class="n">path_audio</span><span class="o">=</span><span class="s1">&#39;path/to/audio/file&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="loading-word-vectors">
+</section>
+<section id="loading-word-vectors">
 <h2>Loading Word vectors<a class="headerlink" href="#loading-word-vectors" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyeeg.io</span> <span class="kn">import</span> <span class="n">WordLevelFeatures</span>
 <span class="n">wlf</span> <span class="o">=</span> <span class="n">wfeats</span> <span class="o">=</span> <span class="n">WordLevelFeatures</span><span class="p">(</span><span class="n">path_praat_env</span><span class="o">=</span><span class="n">dur_path</span><span class="p">,</span> <span class="n">path_wordonsets</span><span class="o">=</span><span class="n">surp_path</span><span class="p">,</span> <span class="n">path_surprisal</span><span class="o">=</span><span class="n">surp_path</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="loading-processed-eeg-processed-by-eeglab">
+</section>
+<section id="loading-processed-eeg-processed-by-eeglab">
 <h2>Loading processed EEG (processed by EEGLAB)<a class="headerlink" href="#loading-processed-eeg-processed-by-eeglab" title="Permalink to this headline">¶</a></h2>
 <p>To load EEG data from <code class="docutils literal notranslate"><span class="pre">.set</span></code> files, the code would be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyeeg.io</span> <span class="kn">import</span> <span class="n">eeglab2mne</span>
@@ -246,45 +252,37 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/TRF_syntactic_feats.html">TRF on Syntactic Features</a></li>
 </ul>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="examples/TRF_wordonsets.html" class="btn btn-neutral float-right" title="TRF Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="install.html" class="btn btn-neutral float-left" title="Installation Instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="examples/TRF_wordonsets.html" class="btn btn-neutral float-right" title="TRF Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation Instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019, Hugo Weissbart
+        &#169; Copyright 2019, Hugo Weissbart.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

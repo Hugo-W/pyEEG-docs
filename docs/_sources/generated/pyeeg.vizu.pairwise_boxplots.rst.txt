@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.vizu`.pairwise_boxplots
+================================================
+
+.. currentmodule:: pyeeg.vizu
+
+.. autofunction:: pairwise_boxplots
+
+.. raw:: html
+
+    <div class="clearer"></div>

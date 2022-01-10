@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.fieldtrip2mne
+==========================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: fieldtrip2mne
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -3,22 +3,28 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>pyeeg.utils.signal_envelope &mdash; pyEEG 1.1a documentation</title>
+  <title>pyeeg.utils.signal_envelope &mdash; pyEEG 1.2a documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -28,13 +34,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -42,8 +46,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pyeeg.utils.chunk_data" href="pyeeg.utils.chunk_data.html" />
-    <link rel="prev" title="pyeeg.utils.moving_average" href="pyeeg.utils.moving_average.html" />
+    <link rel="next" title="pyeeg.utils.fir_order" href="pyeeg.utils.fir_order.html" />
+    <link rel="prev" title="pyeeg.utils.shift_array" href="pyeeg.utils.shift_array.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
      
 
@@ -60,7 +64,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+            <a href="../index.html" class="icon icon-home"> pyEEG
           
 
           
@@ -73,7 +77,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -111,19 +115,15 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../utils.html">Utilities</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../utils.html#classes">Classes</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../utils.html#functions">Functions</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.lag_matrix.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_matrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.lag_span.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_span</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.lag_sparse.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.lag_sparse</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.fir_order.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.fir_order</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.mem_check.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.mem_check</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.rolling_func.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.rolling_func</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.moving_average.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.moving_average</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.signal_envelope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.chunk_data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.chunk_data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.shift_array.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.shift_array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.is_pos_def.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.is_pos_def</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils.find_knee_point.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.find_knee_point</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyeeg.utils._is_1d.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>._is_1d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utils.html#array-manipulation">Array manipulation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../utils.html#signal">Signal</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.signal_envelope</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyeeg.utils.fir_order.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.fir_order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyeeg.utils.find_knee_point.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.find_knee_point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyeeg.utils.is_pos_def.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code>.is_pos_def</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../utils.html#other">Other</a></li>
 </ul>
 </li>
 </ul>
@@ -173,6 +173,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -186,7 +188,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/pyeeg.utils.signal_envelope.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -224,11 +226,11 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="pyeeg-utils-signal-envelope">
+<section id="pyeeg-utils-signal-envelope">
 <h1><a class="reference internal" href="../utils.html#module-pyeeg.utils" title="pyeeg.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.utils</span></code></a>.signal_envelope<a class="headerlink" href="#pyeeg-utils-signal-envelope" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="pyeeg.utils.signal_envelope">
-<code class="sig-prename descclassname">pyeeg.utils.</code><code class="sig-name descname">signal_envelope</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">signal</span></em>, <em class="sig-param"><span class="n">srate</span></em>, <em class="sig-param"><span class="n">cutoff</span><span class="o">=</span><span class="default_value">20.0</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'hilbert'</span></em>, <em class="sig-param"><span class="n">comp_factor</span><span class="o">=</span><span class="default_value">0.3333333333333333</span></em>, <em class="sig-param"><span class="n">resample</span><span class="o">=</span><span class="default_value">125</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.utils.signal_envelope" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.utils.signal_envelope">
+<span class="sig-prename descclassname"><span class="pre">pyeeg.utils.</span></span><span class="sig-name descname"><span class="pre">signal_envelope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hilbert'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3333333333333333</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">125</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.utils.signal_envelope" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the broadband envelope of the input signal.
 Several methods are available:</p>
 <blockquote>
@@ -261,44 +263,36 @@ Explicitly set to False or None to skip resampling</p></li>
 </dl>
 </dd></dl>
 
-<div class="clearer"></div></div>
+<div class="clearer"></div></section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pyeeg.utils.chunk_data.html" class="btn btn-neutral float-right" title="pyeeg.utils.chunk_data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="pyeeg.utils.moving_average.html" class="btn btn-neutral float-left" title="pyeeg.utils.moving_average" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="pyeeg.utils.fir_order.html" class="btn btn-neutral float-right" title="pyeeg.utils.fir_order" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pyeeg.utils.shift_array.html" class="btn btn-neutral float-left" title="pyeeg.utils.shift_array" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019, Hugo Weissbart
+        &#169; Copyright 2019, Hugo Weissbart.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.vizu`.get_spatial_colors
+=================================================
+
+.. currentmodule:: pyeeg.vizu
+
+.. autofunction:: get_spatial_colors
+
+.. raw:: html
+
+    <div class="clearer"></div>

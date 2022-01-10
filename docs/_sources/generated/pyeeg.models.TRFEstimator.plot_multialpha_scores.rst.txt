@@ -1,0 +1,10 @@
+:mod:`pyeeg.models`.TRFEstimator.plot_multialpha_scores
+====================================================================
+
+.. currentmodule:: pyeeg.models
+
+.. automethod:: TRFEstimator.plot_multialpha_scores
+
+.. raw:: html
+
+    <div class="clearer"></div>

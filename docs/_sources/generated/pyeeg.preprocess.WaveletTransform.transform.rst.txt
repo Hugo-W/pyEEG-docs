@@ -1,0 +1,10 @@
+:mod:`pyeeg.preprocess`.WaveletTransform.transform
+===============================================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. automethod:: WaveletTransform.transform
+
+.. raw:: html
+
+    <div class="clearer"></div>

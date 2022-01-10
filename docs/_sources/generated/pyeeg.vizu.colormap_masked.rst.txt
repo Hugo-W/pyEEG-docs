@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.vizu`.colormap_masked
+==============================================
+
+.. currentmodule:: pyeeg.vizu
+
+.. autofunction:: colormap_masked
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -1,0 +1,10 @@
+:mod:`pyeeg.models`.TRFEstimator.select_best_coefs
+===============================================================
+
+.. currentmodule:: pyeeg.models
+
+.. automethod:: TRFEstimator.select_best_coefs
+
+.. raw:: html
+
+    <div class="clearer"></div>

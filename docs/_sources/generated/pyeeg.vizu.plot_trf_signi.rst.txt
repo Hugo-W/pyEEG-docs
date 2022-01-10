@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.vizu`.plot_trf_signi
+=============================================
+
+.. currentmodule:: pyeeg.vizu
+
+.. autofunction:: plot_trf_signi
+
+.. raw:: html
+
+    <div class="clearer"></div>

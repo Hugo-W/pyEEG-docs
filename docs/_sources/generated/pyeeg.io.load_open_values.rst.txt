@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.load_open_values
+=============================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: load_open_values
+
+.. raw:: html
+
+    <div class="clearer"></div>

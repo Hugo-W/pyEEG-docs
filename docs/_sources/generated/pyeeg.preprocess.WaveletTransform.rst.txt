@@ -1,0 +1,24 @@
+﻿:mod:`pyeeg.preprocess`.WaveletTransform
+===============================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. autoclass:: WaveletTransform
+
+Methods
+~~~~~~~
+
+   
+
+        .. autosummary::
+            :toctree:
+            :template: method.rst
+
+        
+            WaveletTransform.fit_transform
+            WaveletTransform.transform
+   
+
+.. raw:: html
+
+    <div class="clearer"></div>

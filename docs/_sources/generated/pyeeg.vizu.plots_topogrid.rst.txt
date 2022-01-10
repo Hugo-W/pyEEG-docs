@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.vizu`.plots_topogrid
+=============================================
+
+.. currentmodule:: pyeeg.vizu
+
+.. autofunction:: plots_topogrid
+
+.. raw:: html
+
+    <div class="clearer"></div>

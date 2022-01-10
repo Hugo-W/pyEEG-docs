@@ -3,22 +3,28 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>pyeeg.io.WordLevelFeatures &mdash; pyEEG 1.1a documentation</title>
+  <title>pyeeg.io.WordLevelFeatures &mdash; pyEEG 1.2a documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -28,13 +34,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -60,7 +64,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyEEG
+            <a href="../index.html" class="icon icon-home"> pyEEG
           
 
           
@@ -73,7 +77,7 @@
             
             
               <div class="version">
-                1.1
+                1.2
               </div>
             
           
@@ -165,6 +169,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -178,7 +184,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/generated/pyeeg.io.WordLevelFeatures.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -216,11 +222,11 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="pyeeg-io-wordlevelfeatures">
+<section id="pyeeg-io-wordlevelfeatures">
 <h1><a class="reference internal" href="../io.html#module-pyeeg.io" title="pyeeg.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code></a>.WordLevelFeatures<a class="headerlink" href="#pyeeg-io-wordlevelfeatures" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="pyeeg.io.WordLevelFeatures">
-<em class="property">class </em><code class="sig-prename descclassname">pyeeg.io.</code><code class="sig-name descname">WordLevelFeatures</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path_praat_env</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_surprisal</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_wordvectors</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_wordfrequency</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_syntactic</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_wordonsets</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_transcript</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rnnlm_model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path_audio</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">keep_vectors</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unk_wv</span><span class="o">=</span><span class="default_value">'rdm'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyeeg.io.</span></span><span class="sig-name descname"><span class="pre">WordLevelFeatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_praat_env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_surprisal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_wordvectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_wordfrequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_syntactic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_wordonsets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_transcript</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rnnlm_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_audio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_vectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unk_wv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rdm'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gather word-level linguistic features based on old and rigid files, generated from
 various sources (RNNLM, custom scripts for word frequencies, Forced-Alignment toolkit, …)</p>
 <dl class="field-list simple">
@@ -246,8 +252,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.duration">
-<code class="sig-name descname">duration</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.duration" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.duration">
+<span class="sig-name descname"><span class="pre">duration</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.duration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration in seconds of the speech segment represented by this instance</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -257,8 +263,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.surprisal">
-<code class="sig-name descname">surprisal</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.surprisal" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.surprisal">
+<span class="sig-name descname"><span class="pre">surprisal</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.surprisal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Surprisal values for each words</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -268,8 +274,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.wordfrequency">
-<code class="sig-name descname">wordfrequency</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordfrequency" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.wordfrequency">
+<span class="sig-name descname"><span class="pre">wordfrequency</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordfrequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Word frequency values for each words</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -279,8 +285,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.wordonsets">
-<code class="sig-name descname">wordonsets</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordonsets" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.wordonsets">
+<span class="sig-name descname"><span class="pre">wordonsets</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordonsets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Onsets values for each words</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -290,8 +296,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.wordlist">
-<code class="sig-name descname">wordlist</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordlist" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.wordlist">
+<span class="sig-name descname"><span class="pre">wordlist</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordlist" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of words from which each feature is being measured</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -301,8 +307,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.wordvectors">
-<code class="sig-name descname">wordvectors</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.wordvectors">
+<span class="sig-name descname"><span class="pre">wordvectors</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matrix of word vectors, i.e. concatenation of word vector correpsonding to words in the text</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -312,8 +318,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.vectordim">
-<code class="sig-name descname">vectordim</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.vectordim" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.vectordim">
+<span class="sig-name descname"><span class="pre">vectordim</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.vectordim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of dimensions in the word embedding currently loaded.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -323,8 +329,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.wordvectors_matrix">
-<code class="sig-name descname">wordvectors_matrix</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors_matrix" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.wordvectors_matrix">
+<span class="sig-name descname"><span class="pre">wordvectors_matrix</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>All word vectors (only if <code class="xref py py-data docutils literal notranslate"><span class="pre">keep_vectors</span></code> is True)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -334,8 +340,8 @@ files, for instance as in <cite>Katerina_experiment/story-parts/wordfrequencies/
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="pyeeg.io.WordLevelFeatures.wordvectors_vocab">
-<code class="sig-name descname">wordvectors_vocab</code><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors_vocab" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyeeg.io.WordLevelFeatures.wordvectors_vocab">
+<span class="sig-name descname"><span class="pre">wordvectors_vocab</span></span><a class="headerlink" href="#pyeeg.io.WordLevelFeatures.wordvectors_vocab" title="Permalink to this definition">¶</a></dt>
 <dd><p>Vocabulary associated with word vectors (only if full matrix loaded)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -387,7 +393,7 @@ files along with its transcript.</p>
 </div>
 </dd></dl>
 
-<div class="section" id="methods">
+<section id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><table class="longtable docutils align-default">
@@ -405,45 +411,37 @@ files along with its transcript.</p>
 </tbody>
 </table>
 </div></blockquote>
-<div class="clearer"></div></div>
-</div>
+<div class="clearer"></div></section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pyeeg.io.WordLevelFeatures.align_word_features.html" class="btn btn-neutral float-right" title="pyeeg.io.WordLevelFeatures.align_word_features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="pyeeg.io.AlignedSpeech.samples_from_onset.html" class="btn btn-neutral float-left" title="pyeeg.io.AlignedSpeech.samples_from_onset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="pyeeg.io.WordLevelFeatures.align_word_features.html" class="btn btn-neutral float-right" title="pyeeg.io.WordLevelFeatures.align_word_features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pyeeg.io.AlignedSpeech.samples_from_onset.html" class="btn btn-neutral float-left" title="pyeeg.io.AlignedSpeech.samples_from_onset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2019, Hugo Weissbart
+        &#169; Copyright 2019, Hugo Weissbart.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

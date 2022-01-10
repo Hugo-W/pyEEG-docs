@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.load_depth_values
+==============================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: load_depth_values
+
+.. raw:: html
+
+    <div class="clearer"></div>

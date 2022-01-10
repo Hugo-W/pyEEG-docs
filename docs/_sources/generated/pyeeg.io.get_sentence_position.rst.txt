@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.get_sentence_position
+==================================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: get_sentence_position
+
+.. raw:: html
+
+    <div class="clearer"></div>

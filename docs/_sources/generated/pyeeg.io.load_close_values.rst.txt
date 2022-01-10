@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.io`.load_close_values
+==============================================
+
+.. currentmodule:: pyeeg.io
+
+.. autofunction:: load_close_values
+
+.. raw:: html
+
+    <div class="clearer"></div>

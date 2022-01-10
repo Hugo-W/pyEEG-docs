@@ -1,0 +1,10 @@
+:mod:`pyeeg.preprocess`.WaveletTransform.fit_transform
+===================================================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. automethod:: WaveletTransform.fit_transform
+
+.. raw:: html
+
+    <div class="clearer"></div>
