@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation module &mdash; natMEEG 1.4.0a documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=3c1f2aa2"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vizualisaton" href="vizu.html" />
+    <link rel="prev" title="pyeeg.utils._is_1d" href="generated/pyeeg.utils._is_1d.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+     
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            natMEEG
+              <img src="_static/natmeeg_logo_fulltransparent.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">To get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="io.html">IO module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preprocess.html">Preprocessing module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Simulation module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simulations-utilities">Simulations utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.CTRNN"><code class="docutils literal notranslate"><span class="pre">CTRNN</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyeeg.simulate.CTRNN.simulate"><code class="docutils literal notranslate"><span class="pre">CTRNN.simulate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyeeg.simulate.CTRNN.step"><code class="docutils literal notranslate"><span class="pre">CTRNN.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.JRNetwork"><code class="docutils literal notranslate"><span class="pre">JRNetwork</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyeeg.simulate.JRNetwork.update_connectivity"><code class="docutils literal notranslate"><span class="pre">JRNetwork.update_connectivity()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.JansenRit"><code class="docutils literal notranslate"><span class="pre">JansenRit</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyeeg.simulate.JansenRit.simulate"><code class="docutils literal notranslate"><span class="pre">JansenRit.simulate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyeeg.simulate.JansenRit.step"><code class="docutils literal notranslate"><span class="pre">JansenRit.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.JansenRitExtended"><code class="docutils literal notranslate"><span class="pre">JansenRitExtended</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyeeg.simulate.JansenRitExtended.simulate"><code class="docutils literal notranslate"><span class="pre">JansenRitExtended.simulate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyeeg.simulate.JansenRitExtended.step"><code class="docutils literal notranslate"><span class="pre">JansenRitExtended.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.NeuralMassNetwork"><code class="docutils literal notranslate"><span class="pre">NeuralMassNetwork</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.NeuralMassNode"><code class="docutils literal notranslate"><span class="pre">NeuralMassNode</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.simulate_ar"><code class="docutils literal notranslate"><span class="pre">simulate_ar()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.simulate_var"><code class="docutils literal notranslate"><span class="pre">simulate_var()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeeg.simulate.simulate_var_from_cov"><code class="docutils literal notranslate"><span class="pre">simulate_var_from_cov()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-simulation-models">Some Simulation Models:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vizu.html">Vizualisaton</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About natMEEG</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">natMEEG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Simulation module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/simulate.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pyeeg.simulate">
+<span id="simulation-module"></span><h1>Simulation module<a class="headerlink" href="#module-pyeeg.simulate" title="Link to this heading"></a></h1>
+<section id="simulations-utilities">
+<h2>Simulations utilities<a class="headerlink" href="#simulations-utilities" title="Link to this heading"></a></h2>
+<p>Simulate MEEG-like signals with different connectivity patterns or methods.</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Follow up on these:</dt><dd><ul>
+<li><p>RNN of rate models: <a class="reference external" href="https://elifesciences.org/articles/69499">RNN of rate models</a></p></li>
+<li><p>ctRNN revision, see <a class="reference external" href="https://www.nature.com/articles/s42256-023-00748-9#Sec9">ctRNN revision</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Simulation based on connectivity matrix: implement a network of N nodes simply using the connectivity matrix and node-specific implementations</p></li>
+<li><dl class="simple">
+<dt>Neural mass models to be added:</dt><dd><ul>
+<li><p>Wilson-Cowan</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyeeg.simulate.CTRNN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">CTRNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_dim=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt=0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonlinearity=&lt;function</span> <span class="pre">sigmoid&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.CTRNN" title="Link to this definition"></a></dt>
+<dd><p>Continuous Time Recurrent Neural Network (CTRNN) model.</p>
+<div class="math notranslate nohighlight">
+\[\tau \dot{x} = -x + W o + I + \theta\]</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyeeg.simulate.CTRNN.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmax=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">I=&lt;function</span> <span class="pre">CTRNN.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.CTRNN.simulate" title="Link to this definition"></a></dt>
+<dd><p>Simulate the CTRNN model and monitor the output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x0</strong> (<em>array_like</em>) – The initial state of the system. Shape (N,).</p></li>
+<li><p><strong>tmax</strong> (<em>float</em>) – The maximum time to simulate.</p></li>
+<li><p><strong>noise</strong> (<em>float</em>) – The standard deviation of the noise to add to the system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>x</strong> – The simulated time series. Shape (n, N).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyeeg.simulate.CTRNN.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.CTRNN.step" title="Link to this definition"></a></dt>
+<dd><p>Compute one step of the CTRNN model.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyeeg.simulate.JRNetwork">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">JRNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([[0,</span> <span class="pre">1],</span> <span class="pre">[0,</span> <span class="pre">0]])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_dynamics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.JRNetwork" title="Link to this definition"></a></dt>
+<dd><p>Abstract class for neural mass models.
+Defines the function to be implemented for the simulation.</p>
+<p class="rubric">Notes</p>
+<p>Two types of networks are modelled in the literature: either one when the mean input and variance of the input
+are controlled for each node, such that the input received from connected nodes is normalised and will relatively
+shut down contribution from external input, or one where the input is not normalised and the external input is
+simply summed over the input from connected nodes.
+The latter is seen in <a class="footnote-reference brackets" href="#id13" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> and <a class="footnote-reference brackets" href="#id15" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, while the former is seen in <a class="footnote-reference brackets" href="#id17" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> &amp; <a class="footnote-reference brackets" href="#id19" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="footnote-reference brackets" href="#id12" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Jansen, B. H., &amp; Rit, V. G. (1995). Electroencephalogram and visual evoked potential generation in a mathematical model of coupled cortical columns. <em>Biological cybernetics</em>, 73(4), 357-366.</p></li>
+<li><p><a class="footnote-reference brackets" href="#id13" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> Kazemi &amp; Jamali, (2022). Phase synchronization and measure of criticality in a network of neural mass models. <a class="reference external" href="https://www.nature.com/articles/s41598-022-05285-w">Nature</a>.</p></li>
+<li><p><a class="footnote-reference brackets" href="#id15" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> Forrester et al. (2020). Network Neuroscience. The role of node dynamics in shaping emergent functional connectivity patterns in the brain. <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7286301/#bib70">PMC</a>.</p></li>
+<li><p><a class="footnote-reference brackets" href="#id17" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> David &amp; Friston (2006). <em>NeuroImage</em>. A Neural mass model for MEG/EEG: coupling and neuronal dynamics. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811903004579?ref=cra_js_challenge&amp;fr=RR-1">ScienceDirect</a>.</p></li>
+<li><p><a class="footnote-reference brackets" href="#id19" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> David et al., (2004). Evaluation of different measures of functional connectivity using a neural mass model. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811903006566?ref=pdf_download&amp;fr=RR-2&amp;rr=8279b478ba0328ac#APP1">ScienceDirect</a>.</p></li>
+</ul>
+</div></blockquote>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">1</a><span class="fn-bracket">]</span></span>
+<p>Jansen, B. H., &amp; Rit, V. G. (1995). Electroencephalogram and visual evoked potential generation in a mathematical model of coupled cortical columns. <em>Biological cybernetics</em>, 73(4), 357-366.</p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
+<p>Kazemi &amp; Jamali, (2022). Phase synchronization and measure of criticality in a network of neural mass models. <a class="reference external" href="https://www.nature.com/articles/s41598-022-05285-w">Nature</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id15" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id8">2</a>)</span>
+<p>Forrester et al. (2020). Network Neuroscience. The role of node dynamics in shaping emergent functional connectivity patterns in the brain. <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7286301/#bib70">PMC</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id17" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id9">2</a>)</span>
+<p>David &amp; Friston (2006). <em>NeuroImage</em>. A Neural mass model for MEG/EEG: coupling and neuronal dynamics. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811903004579?ref=cra_js_challenge&amp;fr=RR-1">ScienceDirect</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id19" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id10">2</a>)</span>
+<p>David et al., (2004). Evaluation of different measures of functional connectivity using a neural mass model. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811903006566?ref=pdf_download&amp;fr=RR-2&amp;rr=8279b478ba0328ac#APP1">ScienceDirect</a>.</p>
+</aside>
+</aside>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyeeg.simulate.JRNetwork.update_connectivity">
+<span class="sig-name descname"><span class="pre">update_connectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.JRNetwork.update_connectivity" title="Link to this definition"></a></dt>
+<dd><p>x represents the firing rates output of all nodes, needed to compute the standard deviation
+Shape of x: (N, ntimes)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyeeg.simulate.JansenRit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">JansenRit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt=0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonlinearity=&lt;function</span> <span class="pre">sigmoid&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.JansenRit" title="Link to this definition"></a></dt>
+<dd><p>Jansen-Rit model.</p>
+<p>3 populations: excitatory, inhibitory and pyramidal:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>___________    ___________
+|         |    |         |
+!  Inhib  !    !  Excit  !
+|         |    |         |
+-----------    -----------
+C2,C4 \             / C1, C3
+       \___________/
+        |         |
+        ! Pyramid !
+        |         |
+        -----------
+</pre></div>
+</div>
+<p>Parameters and typical values as in Grimbert &amp; Faugeras, 2006:</p>
+<ul class="simple">
+<li><p><strong>C1, C2, C3, C4</strong>: Average number of synapses between populations: <code class="docutils literal notranslate"><span class="pre">135</span> <span class="pre">*</span> <span class="pre">[1,</span> <span class="pre">0.8,</span> <span class="pre">0.25,</span> <span class="pre">0.25]</span></code></p></li>
+<li><p><strong>tau_e</strong>: Time scale for excitatory population: <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">ms</span></code></p></li>
+<li><p><strong>tau_i</strong>: Time scale for inhibitory population: <code class="docutils literal notranslate"><span class="pre">50</span> <span class="pre">ms</span></code></p></li>
+<li><p><strong>G_exc</strong>: Average excitatory synaptic gain: <code class="docutils literal notranslate"><span class="pre">3.25</span></code></p></li>
+<li><p><strong>G_inh</strong>: Average inhibitory synaptic gain: <code class="docutils literal notranslate"><span class="pre">22</span></code></p></li>
+<li><p><strong>rmax</strong>: Amplitude of sigmoid: <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">s^-1</span></code></p></li>
+<li><p><strong>beta</strong>: Slope of sigmoid: <code class="docutils literal notranslate"><span class="pre">0.56</span> <span class="pre">mV^-1</span></code></p></li>
+<li><p><strong>theta</strong>: Threshold of sigmoid: <code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">mV</span></code></p></li>
+<li><p><strong>Conduction velocity</strong>: <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">m/s</span></code></p></li>
+<li><p><strong>h</strong>: Integration time step: <code class="docutils literal notranslate"><span class="pre">0.0001</span> <span class="pre">s</span></code> (by default)</p></li>
+<li><p><strong>P</strong>: External input to each of the neural masses: <code class="docutils literal notranslate"><span class="pre">150</span> <span class="pre">Hz</span></code> (constant input)</p></li>
+<li><p><strong>Coupling</strong>: Coupling between the neural masses: <code class="docutils literal notranslate"><span class="pre">[0.1:0.012:0.292]</span></code></p></li>
+</ul>
+<p>This table is from the paper:
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10473283/">Kulik et al, Network Neurosci. (2023)</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyeeg.simulate.JansenRit.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.JansenRit.simulate" title="Link to this definition"></a></dt>
+<dd><p>Simulate the Jansen-Rit model and monitor the output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x0</strong> (<em>array_like</em>) – The initial state of the system. Shape (N,).</p></li>
+<li><p><strong>tmax</strong> (<em>float</em>) – The maximum time to simulate.</p></li>
+<li><p><strong>noise</strong> (<em>float</em>) – The standard deviation of the noise to add to the system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>x</strong> – The simulated time series. Shape (n, N).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyeeg.simulate.JansenRit.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.JansenRit.step" title="Link to this definition"></a></dt>
+<dd><p>Compute one step of the Jansen-Rit model.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyeeg.simulate.JansenRitExtended">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">JansenRitExtended</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt=0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed=42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonlinearity=&lt;function</span> <span class="pre">sigmoid&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.JansenRitExtended" title="Link to this definition"></a></dt>
+<dd><p>Jansen-Rit model - Exctended version: dual kinetic model.</p>
+<p>See <a class="reference external" href="https://pdf.sciencedirectassets.com/272508/1-s2.0-S1053811900X00924/1-s2.0-S1053811903004579/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEKH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDklbniEg%2BIxtbMhqre0GLXBUY61F7QwRGlTcS0Tw50mAIgPijMAG0JRY86ILcJl5khJAbWRSGrqqz8rRNKkeVXhtMqvAUI6v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgwwNTkwMDM1NDY4NjUiDDWGjReDtp%2FZt%2BvT4SqQBUgH%2FBzAz1ffqLsZXij%2Fhvyo540aF9iKjI5qqwn%2FClzZq1dP%2BofFqhpbLq%2FbRaP98Et%2Bs5VZoAoNHhC8dMDRlrxY47ZuTWehsc2C8ZUcz6D9lYArh5ggiCQZMm9040OWVNDarLG8631K4g0HFpEHwsubfZoIUgs5XABH%2FyF1NE2zXo3JXhU%2FKwsZHVqqidrV0nv%2B9IJ5%2BigTmMVePAINzRUuQjnFgbyqNvqMwUsNDi92QSN7u%2BdJi0ksGwqTWyBCM7MUrwK%2FisZjWmQcQeCx%2FuLyhE77tU6x7gpR%2BGdE%2BOmiISZDROqxwq%2FmsC%2B%2FR%2BMsFubuDhdTI8n8kllkh079IhICKgEzhzFLWgmNxXdbxBS6vQi13IA5SNlQuuzArMu0Z1GkM9EwbXRUI3u4oeOMtGOslgCYdgsSJpebcg8zOg2ueLBgHSfubsGGJ5l5SxOR%2FIVF6tHjzLoCz2njmpmtSr%2Bmi56T9qKmkUC4sAoYnbpllz3yd%2F4%2B2Xh3AruYCVWyJ%2FVLgTbrPXYpihKXryoL1DNw94iDb%2FWutOEqh46F64lPV96HjCvNME4smEYyyPKz8DWYdMcU6U35qVbk%2BXlv%2FoDv7AIjCJi3l9U98IL%2BiZMAnCN8u88BtwF8o7PrMAMfRzjQl53oJEt%2BCfnIMZhwy0raTnU3Sb61tmgBqoIrY7NFmWjrAmqNJilwO16T7RIJkjRhufHocRzquTEj6F5NyPrir%2FeVwlg3%2BM8kgmsdsiIfLR9tkvkXCcSx1M4%2FwdK9id37RAh5D%2Fcw0jAcqEinfgj%2Bw4Z9MX5FU91B9pOJIBk%2BGRraBuxSsxznjeQ%2BlOZVwtQ7nVwE%2Bk0XUHkMv075s9RxWPIrg48wrQMqJUhLaW7zMK%2B%2B7KoGOrEBKbm0kOWBELm7BGve3m4Vj6De%2BonWolZfqid1yachKSVCGGly07GpJptQJqCsQftOtoRw966JD257GoZ%2BssIo%2FrdAhYGJXSWfvpbzGVT3etLIjbrApoBoQMzw%2BVTy1I%2FyomAtv2yXcop%2FNGlQyOkREmdcc3cbpVi78%2FPiChzyI3ESzp4hwWnNKs2cFoQE15W8GGT0FxkBk0QoXJN2MiPdAS%2Fd7Nrw4MOMPaseHhIfQx81&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20231120T101219Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=300&amp;X-Amz-Credential=ASIAQ3PHCVTYXMTQIC7Q%2F20231120%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=29cd9a0fade336c06381b528450f2b797b8b67eaa9ecc3e029ceb182ac9dcf40&amp;hash=d99e790b5d5df95dc08507ca2341780d14b640ae4c5e57d1b6e1cac92280cb90&amp;host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&amp;pii=S1053811903004579&amp;tid=spdf-2465ea3f-65c5-4f0d-9fd9-eaf43d018e8d&amp;sid=3f6dcc697a1fe84db69a8074585332d50fa6gxrqb&amp;type=client&amp;tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&amp;ua=080f57525b01065d0459&amp;rr=828fe9f6bfba5c4b&amp;cc=nl">David &amp; Friston, NeuroImage (2003)</a></p>
+<p>We model two parallel subpopulations with different kinematics in order to capture multiband or broadband dynamics.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyeeg.simulate.JansenRitExtended.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.JansenRitExtended.simulate" title="Link to this definition"></a></dt>
+<dd><p>Simulate the Jansen-Rit model and monitor the output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x0</strong> (<em>array_like</em>) – The initial state of the system. Shape (N,).</p></li>
+<li><p><strong>tmax</strong> (<em>float</em>) – The maximum time to simulate.</p></li>
+<li><p><strong>noise</strong> (<em>float</em>) – The standard deviation of the noise to add to the system.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>x</strong> – The simulated time series. Shape (n, N).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyeeg.simulate.JansenRitExtended.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.JansenRitExtended.step" title="Link to this definition"></a></dt>
+<dd><p>Compute one step of the Jansen-Rit model.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyeeg.simulate.NeuralMassNetwork">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">NeuralMassNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_dynamics</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.NeuralMassNetwork" title="Link to this definition"></a></dt>
+<dd><p>Abstract class for neural mass models.
+Defines the function to be implemented for the simulation.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyeeg.simulate.NeuralMassNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">NeuralMassNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.NeuralMassNode" title="Link to this definition"></a></dt>
+<dd><p>Abstract class for neural mass models.
+Defines the function to be implemented for the simulation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyeeg.simulate.simulate_ar">
+<span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">simulate_ar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.simulate_ar" title="Link to this definition"></a></dt>
+<dd><p>Simulate an autoregressive process of order <cite>order</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> (<em>int</em>) – The order of the autoregressive process.</p></li>
+<li><p><strong>coefs</strong> (<em>array_like</em>) – The coefficients of the autoregressive process. The first element is the coefficient of the lag (t-1).</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – The number of samples to simulate.</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – The standard deviation of the additive noise process.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>x</strong> – The simulated time series. Shape (n,).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyeeg.simulate.simulate_var">
+<span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">simulate_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coef</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.simulate_var" title="Link to this definition"></a></dt>
+<dd><p>Simulate a VAR model of order <cite>order</cite>.</p>
+<p>The VAR model is defined as:</p>
+<div class="math notranslate nohighlight">
+\[x_t = A_1 x_{t-1} + A_2 x_{t-2} + ... + A_p x_{t-p} + \epsilon_t
+x_t = \sum_{i=1}^p A_i x_{t-i} + \epsilon_t\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_t\)</span> is a vector of shape (ndim, 1), <span class="math notranslate nohighlight">\(A_i\)</span> is a matrix of shape (ndim, ndim)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The coefficients at a given lag are such as <span class="math notranslate nohighlight">\(C_ij\)</span> is i-&gt;j, so it will be the coefficients for dimension j!
+For example, each row of the first column are determining the contributions of each component onto the first component.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyeeg.simulate.simulate_var_from_cov">
+<span class="sig-prename descclassname"><span class="pre">pyeeg.simulate.</span></span><span class="sig-name descname"><span class="pre">simulate_var_from_cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyeeg.simulate.simulate_var_from_cov" title="Link to this definition"></a></dt>
+<dd><p>Simulate a VAR model of order <cite>order</cite> from a covariance matrix.</p>
+<p>The VAR model is defined as:</p>
+<div class="math notranslate nohighlight">
+\[x_t = A_1 x_{t-1} + A_2 x_{t-2} + ... + A_p x_{t-p} + \epsilon_t
+x_t = \sum_{i=1}^p A_i x_{t-i} + \epsilon_t\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_t\)</span> is a vector of shape (ndim, 1), <span class="math notranslate nohighlight">\(A_i\)</span> is a matrix of shape (ndim, ndim)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The coefficients at a given lag are such as <span class="math notranslate nohighlight">\(C_ij\)</span> is i-&gt;j, so it will be the coefficients for dimension j!
+For example, each row of the first column are determining the contributions of each component onto the first component.</p>
+</div>
+</dd></dl>
+
+<section id="some-simulation-models">
+<h2>Some Simulation Models:<a class="headerlink" href="#some-simulation-models" title="Link to this heading"></a></h2>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generated/pyeeg.utils._is_1d.html" class="btn btn-neutral float-left" title="pyeeg.utils._is_1d" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vizu.html" class="btn btn-neutral float-right" title="Vizualisaton" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Hugo Weissbart.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -15,8 +15,6 @@ Methods
             :template: method.rst
 
         
-            WaveletTransform.fit_transform
-            WaveletTransform.transform
    
 
 .. raw:: html

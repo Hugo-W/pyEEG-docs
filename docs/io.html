@@ -1,48 +1,24 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>IO module &mdash; pyEEG 1.2a documentation</title>
-  
+  <title>IO module &mdash; natMEEG 1.4.0a documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=3c1f2aa2"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -53,61 +29,33 @@
 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> pyEEG
           
-
-          
-            
-            <img src="_static/pyeeg-logo-light.svg" class="logo" alt="Logo"/>
-          
+          <a href="index.html" class="icon icon-home">
+            natMEEG
+              <img src="_static/natmeeg_logo_fulltransparent.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-              <div class="version">
-                1.2
-              </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">To get started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">To get started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contents</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">IO module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
@@ -117,19 +65,19 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.eeglab2mne.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.eeglab2mne</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.fieldtrip2mne.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.fieldtrip2mne</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_mat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_mat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_ica_matrices.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_ica_matrices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.extract_duration_audio.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.extract_duration_audio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.extract_duration_praat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.extract_duration_praat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.fieldtrip2mne.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.fieldtrip2mne</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.get_sentence_position.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.get_sentence_position</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_surprisal_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_surprisal_values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_wordfreq_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_wordfreq_values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_depth_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_depth_values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_open_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_open_values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_close_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_close_values</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.get_word_onsets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.get_word_onsets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.get_word_vectors.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.get_word_vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_close_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_close_values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_depth_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_depth_values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_ica_matrices.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_ica_matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_mat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_mat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_open_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_open_values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_surprisal_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_surprisal_values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/pyeeg.io.load_wordfreq_values.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.io</span></code>.load_wordfreq_values</a></li>
 </ul>
 </li>
 </ul>
@@ -137,104 +85,40 @@
 <li class="toctree-l1"><a class="reference internal" href="preprocess.html">Preprocessing module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulate.html">Simulation module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vizu.html">Vizualisaton</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About pyEEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About natMEEG</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">pyEEG</a>
-        
+          <a href="index.html">natMEEG</a>
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>IO module</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">IO module</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/io.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-pyeeg.io">
-<span id="io-module"></span><h1>IO module<a class="headerlink" href="#module-pyeeg.io" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="module-pyeeg.io">
+<span id="io-module"></span><h1>IO module<a class="headerlink" href="#module-pyeeg.io" title="Link to this heading"></a></h1>
 <p>Input/output of data from files:</p>
 <blockquote>
 <div><ul class="simple">
@@ -248,71 +132,63 @@ take the data to MNE format.</p>
 <p>Another important part are classes to handle continuous stimuli aligned with EEG recording.
 These <em>aligned features</em> then serve as an input to most of the decoding functions.</p>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.AlignedSpeech.html#pyeeg.io.AlignedSpeech" title="pyeeg.io.AlignedSpeech"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.AlignedSpeech</span></code></a>(onset, srate[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.AlignedSpeech.html#pyeeg.io.AlignedSpeech" title="pyeeg.io.AlignedSpeech"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlignedSpeech</span></code></a>(onset, srate[, path_audio, ...])</p></td>
 <td><p>Generic class to describe features corresponding to a speech segment aligned with EEG data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.WordLevelFeatures.html#pyeeg.io.WordLevelFeatures" title="pyeeg.io.WordLevelFeatures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.WordLevelFeatures</span></code></a>([path_praat_env, …])</p></td>
-<td><p>Gather word-level linguistic features based on old and rigid files, generated from various sources (RNNLM, custom scripts for word frequencies, Forced-Alignment toolkit, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.WordLevelFeatures.html#pyeeg.io.WordLevelFeatures" title="pyeeg.io.WordLevelFeatures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WordLevelFeatures</span></code></a>([path_praat_env, ...])</p></td>
+<td><p>Gather word-level linguistic features based on old and rigid files, generated from various sources (RNNLM, custom scripts for word frequencies, Forced-Alignment toolkit, ...)</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.eeglab2mne.html#pyeeg.io.eeglab2mne" title="pyeeg.io.eeglab2mne"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.eeglab2mne</span></code></a>(fname[, montage, …])</p></td>
-<td><p>Get an EEGLAB dataset into a MNE Raw object.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.eeglab2mne.html#pyeeg.io.eeglab2mne" title="pyeeg.io.eeglab2mne"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eeglab2mne</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.fieldtrip2mne.html#pyeeg.io.fieldtrip2mne" title="pyeeg.io.fieldtrip2mne"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.fieldtrip2mne</span></code></a>(fname[, verbose, …])</p></td>
-<td><p>Clumsy attempting to transfer data to MNE instance for trial for varying trial lengths.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.load_mat.html#pyeeg.io.load_mat" title="pyeeg.io.load_mat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_mat</span></code></a>(fname)</p></td>
-<td><p>Loading simple mat file into dictionnary</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_ica_matrices.html#pyeeg.io.load_ica_matrices" title="pyeeg.io.load_ica_matrices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_ica_matrices</span></code></a>(fname)</p></td>
-<td><p>Load ICA matrices from EEGLAB structure .set file</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.extract_duration_audio.html#pyeeg.io.extract_duration_audio" title="pyeeg.io.extract_duration_audio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.extract_duration_audio</span></code></a>(filepath)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.extract_duration_audio.html#pyeeg.io.extract_duration_audio" title="pyeeg.io.extract_duration_audio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_duration_audio</span></code></a>(filepath)</p></td>
 <td><p>Function to get the duration of an audio file</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.extract_duration_praat.html#pyeeg.io.extract_duration_praat" title="pyeeg.io.extract_duration_praat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.extract_duration_praat</span></code></a>(fname)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.extract_duration_praat.html#pyeeg.io.extract_duration_praat" title="pyeeg.io.extract_duration_praat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_duration_praat</span></code></a>(fname)</p></td>
 <td><p>Function to get the duration from a file generated by PrAat software, for instance to get envelope or pitch of a sound.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.get_sentence_position.html#pyeeg.io.get_sentence_position" title="pyeeg.io.get_sentence_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.get_sentence_position</span></code></a>(filepath)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.fieldtrip2mne.html#pyeeg.io.fieldtrip2mne" title="pyeeg.io.fieldtrip2mne"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fieldtrip2mne</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.get_sentence_position.html#pyeeg.io.get_sentence_position" title="pyeeg.io.get_sentence_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sentence_position</span></code></a>(filepath)</p></td>
 <td><p>Extract sentence position of words given a text file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_surprisal_values.html#pyeeg.io.load_surprisal_values" title="pyeeg.io.load_surprisal_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_surprisal_values</span></code></a>(filepath[, eps])</p></td>
-<td><p>Load surprisal values from the given file.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.get_word_onsets.html#pyeeg.io.get_word_onsets" title="pyeeg.io.get_word_onsets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_word_onsets</span></code></a>(filepath)</p></td>
+<td><p>Simply load word lists and respective onsets for a given sound file/story parts...</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.load_wordfreq_values.html#pyeeg.io.load_wordfreq_values" title="pyeeg.io.load_wordfreq_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_wordfreq_values</span></code></a>(filepath[, …])</p></td>
-<td><p>Load word frequency, and returns -log of it (scaled by median value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.get_word_vectors.html#pyeeg.io.get_word_vectors" title="pyeeg.io.get_word_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_word_vectors</span></code></a>(wordlist, wordvectors[, unk])</p></td>
+<td><p>Get the word vectors for each word in the list supplied.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_depth_values.html#pyeeg.io.load_depth_values" title="pyeeg.io.load_depth_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_depth_values</span></code></a>(filepath)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_close_values.html#pyeeg.io.load_close_values" title="pyeeg.io.load_close_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_close_values</span></code></a>(filepath)</p></td>
+<td><p>Load syntactic structure open values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.load_depth_values.html#pyeeg.io.load_depth_values" title="pyeeg.io.load_depth_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_depth_values</span></code></a>(filepath)</p></td>
 <td><p>Load syntactic structure depth values.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.load_open_values.html#pyeeg.io.load_open_values" title="pyeeg.io.load_open_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_open_values</span></code></a>(filepath)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_ica_matrices.html#pyeeg.io.load_ica_matrices" title="pyeeg.io.load_ica_matrices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_ica_matrices</span></code></a>(fname)</p></td>
+<td><p>Load ICA matrices from EEGLAB structure .set file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.load_mat.html#pyeeg.io.load_mat" title="pyeeg.io.load_mat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_mat</span></code></a>(fname)</p></td>
+<td><p>Loading simple mat file into dictionnary</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_open_values.html#pyeeg.io.load_open_values" title="pyeeg.io.load_open_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_open_values</span></code></a>(filepath)</p></td>
 <td><p>Load syntactic structure open values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_close_values.html#pyeeg.io.load_close_values" title="pyeeg.io.load_close_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.load_close_values</span></code></a>(filepath)</p></td>
-<td><p>Load syntactic structure open values.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.load_surprisal_values.html#pyeeg.io.load_surprisal_values" title="pyeeg.io.load_surprisal_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_surprisal_values</span></code></a>(filepath[, eps])</p></td>
+<td><p>Load surprisal values from the given file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.io.get_word_onsets.html#pyeeg.io.get_word_onsets" title="pyeeg.io.get_word_onsets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.get_word_onsets</span></code></a>(filepath)</p></td>
-<td><p>Simply load word lists and respective onsets for a given sound file/story parts…</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.get_word_vectors.html#pyeeg.io.get_word_vectors" title="pyeeg.io.get_word_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.io.get_word_vectors</span></code></a>(wordlist, wordvectors)</p></td>
-<td><p>Get the word vectors for each word in the list supplied.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.io.load_wordfreq_values.html#pyeeg.io.load_wordfreq_values" title="pyeeg.io.load_wordfreq_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_wordfreq_values</span></code></a>(filepath[, key, ...])</p></td>
+<td><p>Load word frequency, and returns -log of it (scaled by median value)</p></td>
 </tr>
 </tbody>
 </table>
@@ -321,50 +197,33 @@ These <em>aligned features</em> then serve as an input to most of the decoding f
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="generated/pyeeg.io.AlignedSpeech.html" class="btn btn-neutral float-right" title="pyeeg.io.AlignedSpeech" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="examples/TRF_syntactic_feats.html" class="btn btn-neutral float-left" title="TRF on Syntactic Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/pyeeg.io.AlignedSpeech.html" class="btn btn-neutral float-right" title="pyeeg.io.AlignedSpeech" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2019, Hugo Weissbart.
-
-    </p>
+    <p>&#169; Copyright 2025, Hugo Weissbart.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

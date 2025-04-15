@@ -1,0 +1,10 @@
+:mod:`pyeeg.cca`.CCA_Estimator.get_metadata_routing
+================================================================
+
+.. currentmodule:: pyeeg.cca
+
+.. automethod:: CCA_Estimator.get_metadata_routing
+
+.. raw:: html
+
+    <div class="clearer"></div>

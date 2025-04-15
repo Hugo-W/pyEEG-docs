@@ -1,0 +1,10 @@
+:mod:`pyeeg.models`.TRFEstimator.plot_topomap
+==========================================================
+
+.. currentmodule:: pyeeg.models
+
+.. automethod:: TRFEstimator.plot_topomap
+
+.. raw:: html
+
+    <div class="clearer"></div>

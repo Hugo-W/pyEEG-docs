@@ -1,0 +1,10 @@
+:mod:`pyeeg.preprocess`.MultichanWienerFilter.get_metadata_routing
+===============================================================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. automethod:: MultichanWienerFilter.get_metadata_routing
+
+.. raw:: html
+
+    <div class="clearer"></div>

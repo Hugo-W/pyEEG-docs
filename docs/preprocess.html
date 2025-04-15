@@ -1,113 +1,61 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Preprocessing module &mdash; pyEEG 1.2a documentation</title>
-  
+  <title>Preprocessing module &mdash; natMEEG 1.4.0a documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=3c1f2aa2"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="pyeeg.mcca.mCCA" href="generated/pyeeg.mcca.mCCA.html" />
-    <link rel="prev" title="pyeeg.io.get_word_vectors" href="generated/pyeeg.io.get_word_vectors.html" />
+    <link rel="prev" title="pyeeg.io.load_wordfreq_values" href="generated/pyeeg.io.load_wordfreq_values.html" />
     <link href="_static/style.css" rel="stylesheet" type="text/css">
      
 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> pyEEG
           
-
-          
-            
-            <img src="_static/pyeeg-logo-light.svg" class="logo" alt="Logo"/>
-          
+          <a href="index.html" class="icon icon-home">
+            natMEEG
+              <img src="_static/natmeeg_logo_fulltransparent.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-              <div class="version">
-                1.2
-              </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">To get started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">To get started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contents</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="io.html">IO module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Preprocessing module</a><ul>
@@ -131,178 +79,98 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulate.html">Simulation module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vizu.html">Vizualisaton</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other</span></p>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About pyEEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About natMEEG</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">pyEEG</a>
-        
+          <a href="index.html">natMEEG</a>
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Preprocessing module</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Preprocessing module</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/preprocess.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="module-pyeeg.preprocess">
-<span id="preprocessing-module"></span><h1>Preprocessing module<a class="headerlink" href="#module-pyeeg.preprocess" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="module-pyeeg.preprocess">
+<span id="preprocessing-module"></span><h1>Preprocessing module<a class="headerlink" href="#module-pyeeg.preprocess" title="Link to this heading"></a></h1>
 <p>Module containing some preprocessing helper and function to be applied to EEG…</p>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <p>From another module, we can use the multiway CCA as a preprocessing step. Also known as hyperalignment in the literature.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.mcca.mCCA.html#pyeeg.mcca.mCCA" title="pyeeg.mcca.mCCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.mcca.mCCA</span></code></a>([n_components])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.mcca.mCCA.html#pyeeg.mcca.mCCA" title="pyeeg.mcca.mCCA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mCCA</span></code></a>([n_components])</p></td>
 <td><p>Class to support mCCA computation on a set of data matrices.</p></td>
 </tr>
 </tbody>
 </table>
 <p>Directly in <a class="reference internal" href="#module-pyeeg.preprocess" title="pyeeg.preprocess"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyeeg.preprocess</span></code></a> one can find also the two following classes:</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.MultichanWienerFilter.html#pyeeg.preprocess.MultichanWienerFilter" title="pyeeg.preprocess.MultichanWienerFilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.MultichanWienerFilter</span></code></a>([…])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.MultichanWienerFilter.html#pyeeg.preprocess.MultichanWienerFilter" title="pyeeg.preprocess.MultichanWienerFilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultichanWienerFilter</span></code></a>([lags, low_rank, thresh])</p></td>
 <td><p>This class implements a multichannel Wiener Filter for artifact removal.</p></td>
 </tr>
 </tbody>
 </table>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.WaveletTransform.html#pyeeg.preprocess.WaveletTransform" title="pyeeg.preprocess.WaveletTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WaveletTransform</span></code></a>(freqs, sfreq[, n_cycles])</p></td>
-<td><p>This class creates a list of wavelet tranfsform (complex Morlet wavelet) and applies it to a multi-channel signal.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.WaveletTransform.html#pyeeg.preprocess.WaveletTransform" title="pyeeg.preprocess.WaveletTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WaveletTransform</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.create_filterbank.html#pyeeg.preprocess.create_filterbank" title="pyeeg.preprocess.create_filterbank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.create_filterbank</span></code></a>(freqs, srate)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.create_filterbank.html#pyeeg.preprocess.create_filterbank" title="pyeeg.preprocess.create_filterbank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_filterbank</span></code></a>(freqs, srate[, filtertype])</p></td>
 <td><p>Creates a filter bank, by default of chebychev type 2 filters.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.apply_filterbank.html#pyeeg.preprocess.apply_filterbank" title="pyeeg.preprocess.apply_filterbank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.apply_filterbank</span></code></a>(data, fbank)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.apply_filterbank.html#pyeeg.preprocess.apply_filterbank" title="pyeeg.preprocess.apply_filterbank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">apply_filterbank</span></code></a>(data, fbank[, filt_func, ...])</p></td>
 <td><p>Applies a filterbank to a given multi-channel signal.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.get_power.html#pyeeg.preprocess.get_power" title="pyeeg.preprocess.get_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.get_power</span></code></a>(signals[, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.get_power.html#pyeeg.preprocess.get_power" title="pyeeg.preprocess.get_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_power</span></code></a>(signals[, decibels, win, axis, n_jobs])</p></td>
 <td><p>Compute the (log) power modulation of a signal by taking the smooth moving average of its square values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.covariance.html#pyeeg.preprocess.covariance" title="pyeeg.preprocess.covariance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.covariance</span></code></a>(X[, estimator])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.covariance.html#pyeeg.preprocess.covariance" title="pyeeg.preprocess.covariance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">covariance</span></code></a>(X[, estimator])</p></td>
 <td><p>Estimation of one covariance matrix on whole dataset.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.covariances.html#pyeeg.preprocess.covariances" title="pyeeg.preprocess.covariances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.covariances</span></code></a>(X[, estimator])</p></td>
-<td><p>Estimation of covariance matrices from a list of “trials”.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.covariances.html#pyeeg.preprocess.covariances" title="pyeeg.preprocess.covariances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">covariances</span></code></a>(X[, estimator])</p></td>
+<td><p>Estimation of covariance matrices from a list of &quot;trials&quot;.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.covariances_extended.html#pyeeg.preprocess.covariances_extended" title="pyeeg.preprocess.covariances_extended"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyeeg.preprocess.covariances_extended</span></code></a>(X, P)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyeeg.preprocess.covariances_extended.html#pyeeg.preprocess.covariances_extended" title="pyeeg.preprocess.covariances_extended"><code class="xref py py-obj docutils literal notranslate"><span class="pre">covariances_extended</span></code></a>(X, P[, estimator])</p></td>
 <td><p>Special form covariance matrix where data are appended with another set.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="listing-of-all-classes-and-functions">
-<h2>Listing of all classes and functions<a class="headerlink" href="#listing-of-all-classes-and-functions" title="Permalink to this headline">¶</a></h2>
+<h2>Listing of all classes and functions<a class="headerlink" href="#listing-of-all-classes-and-functions" title="Link to this heading"></a></h2>
 <p>Module containing some preprocessing helper and function to be applied to EEG…</p>
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">MultichanWienerFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">MultichanWienerFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>This class implements a multichannel Wiener Filter for artifact removal.
 The method is detailed in the reference paper <em>A generic EEG artifact removal algorithm based on the multi-channel
 Wiener filter</em> from Ben Somers et. al.</p>
@@ -315,7 +183,7 @@ bad portions. It is ok to have large windows around bad data segments, however t
 <span class="sig-name descname"><span class="pre">lags</span></span></dt>
 <dd><p>Lags used for general model (NOT IMPLEMENTED YET)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
@@ -326,7 +194,7 @@ bad portions. It is ok to have large windows around bad data segments, however t
 <span class="sig-name descname"><span class="pre">low_rank</span></span></dt>
 <dd><p>Whether to use low-rank approximation of covariance matrix for the artifactual data</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -338,7 +206,7 @@ bad portions. It is ok to have large windows around bad data segments, however t
 <dd><p>If int, this will correspond to the rank prior
 If float, it will be considered as the percent of variance to be kept</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int or float</p>
 </dd>
 </dl>
@@ -349,7 +217,7 @@ If float, it will be considered as the percent of variance to be kept</p>
 <span class="sig-name descname"><span class="pre">W_</span></span></dt>
 <dd><p>Once fitted, contains the filter coefficients</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type</dt>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ndarray</p>
 </dd>
 </dl>
@@ -358,13 +226,14 @@ If float, it will be considered as the percent of variance to be kept</p>
 <p class="rubric">Example</p>
 <p>TODO: Add code example</p>
 <p>Example of result obtained (cleaning EOG artifact here):</p>
-<a class="reference internal image-reference" href="../img/MWF_EOG_cleaning_example.png"><img alt="../img/MWF_EOG_cleaning_example.png" src="../img/MWF_EOG_cleaning_example.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../img/MWF_EOG_cleaning_example.png"><img alt="../img/MWF_EOG_cleaning_example.png" src="../img/MWF_EOG_cleaning_example.png" style="width: 600px;" />
+</a>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_clean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_artifact</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Fit model to data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>y_clean</strong> (<em>ndarray</em>) – Clean segments</p></li>
 <li><p><strong>y_artifact</strong> (<em>ndarray</em>) – Artifact-contaminated segments</p></li>
@@ -382,17 +251,58 @@ If float, it will be considered as the percent of variance to be kept</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">set_fit_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_artifact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_clean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'$UNCHANGED$'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="generated/pyeeg.preprocess.MultichanWienerFilter.html#pyeeg.preprocess.MultichanWienerFilter" title="pyeeg.preprocess.MultichanWienerFilter"><span class="pre">MultichanWienerFilter</span></a></span></span></dt>
+<dd><p>Request metadata passed to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p>
+<p>Note that this method is only relevant if
+<code class="docutils literal notranslate"><span class="pre">enable_metadata_routing=True</span></code> (see <code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.set_config()</span></code>).
+Please see <span class="xref std std-ref">User Guide</span> on how the routing
+mechanism works.</p>
+<p>The options for each parameter are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: metadata is requested, and passed to <code class="docutils literal notranslate"><span class="pre">fit</span></code> if provided. The request is ignored if metadata is not provided.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: metadata is not requested and the meta-estimator will not pass it to <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: metadata is not requested, and the meta-estimator will raise an error if the user provides it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: metadata should be passed to the meta-estimator with this given alias instead of the original name.</p></li>
+</ul>
+<p>The default (<code class="docutils literal notranslate"><span class="pre">sklearn.utils.metadata_routing.UNCHANGED</span></code>) retains the
+existing request. This allows you to change the request for some
+parameters and not others.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is only relevant if this estimator is used as a
+sub-estimator of a meta-estimator, e.g. used inside a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>. Otherwise it has no effect.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cov_data</strong> (<em>str</em><em>, </em><em>True</em><em>, </em><em>False</em><em>, or </em><em>None</em><em>,                     </em><em>default=sklearn.utils.metadata_routing.UNCHANGED</em>) – Metadata routing for <code class="docutils literal notranslate"><span class="pre">cov_data</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p></li>
+<li><p><strong>y_artifact</strong> (<em>str</em><em>, </em><em>True</em><em>, </em><em>False</em><em>, or </em><em>None</em><em>,                     </em><em>default=sklearn.utils.metadata_routing.UNCHANGED</em>) – Metadata routing for <code class="docutils literal notranslate"><span class="pre">y_artifact</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p></li>
+<li><p><strong>y_clean</strong> (<em>str</em><em>, </em><em>True</em><em>, </em><em>False</em><em>, or </em><em>None</em><em>,                     </em><em>default=sklearn.utils.metadata_routing.UNCHANGED</em>) – Metadata routing for <code class="docutils literal notranslate"><span class="pre">y_clean</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">fit</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The updated object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">transorm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Filter the data to remove artifact learned by the model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>x</strong> (<em>data</em>) – EEG data</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Filtered EEG data</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Filtered EEG data</p>
 </dd>
 </dl>
 </dd></dl>
@@ -401,21 +311,27 @@ If float, it will be considered as the percent of variance to be kept</p>
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">WaveletTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sfreq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cycles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>This class creates a list of wavelet tranfsform (complex Morlet wavelet)
-and applies it to a multi-channel signal.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">Whitener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zca</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>A data whitener (via either PCA or ZCA).</p>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>ndarray</em><em> (</em><em>ntimes</em><em>, </em><em>nchannels</em><em>)</em>) – </p>
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
+and returns a transformed version of <cite>X</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array-like</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Input samples.</p></li>
+<li><p><strong>y</strong> (<em>array-like</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>) or </em><em>(</em><em>n_samples</em><em>, </em><em>n_outputs</em><em>)</em><em>,                 </em><em>default=None</em>) – Target values (None for unsupervised transformations).</p></li>
+<li><p><strong>**fit_params</strong> (<em>dict</em>) – Additional fit parameters.</p></li>
+</ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>Y</strong></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>X_new</strong> – Transformed array.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ndarray (nfreqs, ntimes, nchannels)</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray array of shape (n_samples, n_features_new)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -424,19 +340,19 @@ and applies it to a multi-channel signal.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">apply_filterbank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">fbank</span></em>, <em class="sig-param"><span class="pre">filt_func=&lt;function</span> <span class="pre">lfilter&gt;</span></em>, <em class="sig-param"><span class="pre">n_jobs=-1</span></em>, <em class="sig-param"><span class="pre">axis=-1</span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">apply_filterbank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fbank</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filt_func=&lt;function</span> <span class="pre">lfilter&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs=-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis=-1</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Applies a filterbank to a given multi-channel signal.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>ndarray</em><em> (</em><em>samples</em><em>, </em><em>nchannels</em><em>)</em>) – </p></li>
+<li><p><strong>data</strong> (<em>ndarray</em><em> (</em><em>samples</em><em>, </em><em>nchannels</em><em>)</em>)</p></li>
 <li><p><strong>fb</strong> (<em>list</em>) – list of (b,a) tuples, where b and a specify a digital filter</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>y</strong></p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ndarray (nfilters, samples, nchannels)</p>
 </dd>
 </dl>
@@ -454,17 +370,17 @@ Will concatenate all trials together to compute a single covariance matrix acros
 <span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">covariances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cov'</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Estimation of covariance matrices from a list of “trials”.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>array-like</em><em> (</em><em>ntrials</em><em>, </em><em>nsamples</em><em>, </em><em>nchannels</em><em>) or </em><em>list</em>) – If list, each element can also have different number of samples, but the number of
 channels must be the same for all trials.</p></li>
 <li><p><strong>estimator</strong> (<em>str</em>) – One of covariance estimator from sklearn. See also <code class="xref py py-func docutils literal notranslate"><span class="pre">_check_est()</span></code>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>C</strong> – The list of covariance matrices for each trial.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>array-like (ntrials, nchannels, nchannels)</p>
 </dd>
 </dl>
@@ -473,12 +389,19 @@ channels must be the same for all trials.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">covariances_extended</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cov'</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Special form covariance matrix where data are appended with another set.</p>
+<dd><p>Special form covariance matrix where data are appended with another set.
+For instance, the data could be EEG data and the other set could be a set of idealised response (e.g. a clean ERP).</p>
+<p class="rubric">Notes</p>
+<p>This assumes that the data are of shape (trials, samples, channels) and that the other set is of shape (samples, channels).
+The second set is typically an idealised response from the average across trials.
+The function could however also be called on a single trial, for continuous recordings for instance. In that case, the method used is
+to extend the data with the a dummy dimmension for the trials and for P convolve the idealise response to singular event with a series
+of impulses at the times of those events.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">create_filterbank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">freqs</span></em>, <em class="sig-param"><span class="pre">srate</span></em>, <em class="sig-param"><span class="pre">filtertype=&lt;function</span> <span class="pre">cheby2&gt;</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">create_filterbank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">srate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtertype=&lt;function</span> <span class="pre">cheby2&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Creates a filter bank, by default of chebychev type 2 filters.
 Parameters of filter are to be defined as name value pair arguments.
 Frequency bands are defined with boundaries instead of center frequencies.</p>
@@ -486,10 +409,10 @@ Frequency bands are defined with boundaries instead of center frequencies.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">get_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decibels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">125</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">pyeeg.preprocess.</span></span><span class="sig-name descname"><span class="pre">get_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decibels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">125</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Compute the (log) power modulation of a signal by taking the smooth moving average of its square values.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>signals</strong> (<em>ndarray</em><em> (</em><em>nsamples</em><em>, </em><em>nchans</em><em>)</em>) – Input signals</p></li>
 <li><p><strong>decibels</strong> (<em>bool</em>) – If True, will take the log power (default False).</p></li>
@@ -498,10 +421,10 @@ Frequency bands are defined with boundaries instead of center frequencies.</p>
 <li><p><strong>n_jobs</strong> (<em>int</em>) – Number of cores to be used (Parrallel job).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>out</strong></p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ndarray (nsamples, nchans)</p>
 </dd>
 </dl>
@@ -512,50 +435,33 @@ Frequency bands are defined with boundaries instead of center frequencies.</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generated/pyeeg.io.load_wordfreq_values.html" class="btn btn-neutral float-left" title="pyeeg.io.load_wordfreq_values" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="generated/pyeeg.mcca.mCCA.html" class="btn btn-neutral float-right" title="pyeeg.mcca.mCCA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="generated/pyeeg.io.get_word_vectors.html" class="btn btn-neutral float-left" title="pyeeg.io.get_word_vectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2019, Hugo Weissbart.
-
-    </p>
+    <p>&#169; Copyright 2025, Hugo Weissbart.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

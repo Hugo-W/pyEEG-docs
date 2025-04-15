@@ -1,0 +1,10 @@
+﻿:mod:`pyeeg.models`.fit_var
+========================================
+
+.. currentmodule:: pyeeg.models
+
+.. autofunction:: fit_var
+
+.. raw:: html
+
+    <div class="clearer"></div>

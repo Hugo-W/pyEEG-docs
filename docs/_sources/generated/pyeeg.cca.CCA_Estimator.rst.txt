@@ -16,6 +16,7 @@ Methods
 
         
             CCA_Estimator.fit
+            CCA_Estimator.get_metadata_routing
             CCA_Estimator.get_params
             CCA_Estimator.plot_activation_map
             CCA_Estimator.plot_all_dim_time
@@ -23,7 +24,9 @@ Methods
             CCA_Estimator.plot_corr
             CCA_Estimator.plot_spatial_filter
             CCA_Estimator.plot_time_filter
+            CCA_Estimator.set_fit_request
             CCA_Estimator.set_params
+            CCA_Estimator.set_transform_request
             CCA_Estimator.transform
    
 

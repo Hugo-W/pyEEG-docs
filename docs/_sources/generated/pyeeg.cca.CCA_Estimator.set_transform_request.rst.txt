@@ -1,0 +1,10 @@
+:mod:`pyeeg.cca`.CCA_Estimator.set_transform_request
+=================================================================
+
+.. currentmodule:: pyeeg.cca
+
+.. automethod:: CCA_Estimator.set_transform_request
+
+.. raw:: html
+
+    <div class="clearer"></div>

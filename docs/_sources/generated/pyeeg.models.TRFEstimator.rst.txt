@@ -15,20 +15,25 @@ Methods
             :template: method.rst
 
         
+            TRFEstimator.apply_func
             TRFEstimator.copy
             TRFEstimator.fill_lags
             TRFEstimator.fit
             TRFEstimator.fromArray
+            TRFEstimator.get_metadata_routing
             TRFEstimator.get_params
             TRFEstimator.load
             TRFEstimator.multialpha_score
             TRFEstimator.plot
             TRFEstimator.plot_multialpha_scores
+            TRFEstimator.plot_topomap
             TRFEstimator.predict
             TRFEstimator.save
             TRFEstimator.score
             TRFEstimator.select_best_coefs
+            TRFEstimator.set_fit_request
             TRFEstimator.set_params
+            TRFEstimator.set_score_request
             TRFEstimator.xfit
    
 

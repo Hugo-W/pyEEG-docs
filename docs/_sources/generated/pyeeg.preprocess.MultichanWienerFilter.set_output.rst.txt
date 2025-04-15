@@ -1,0 +1,10 @@
+:mod:`pyeeg.preprocess`.MultichanWienerFilter.set_output
+=====================================================================
+
+.. currentmodule:: pyeeg.preprocess
+
+.. automethod:: MultichanWienerFilter.set_output
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -18,6 +18,7 @@ Methods
             mCCA.canonical_correlate_single
             mCCA.denoise
             mCCA.fit
+            mCCA.get_metadata_routing
             mCCA.get_params
             mCCA.plot_summary_components_variance
             mCCA.set_params

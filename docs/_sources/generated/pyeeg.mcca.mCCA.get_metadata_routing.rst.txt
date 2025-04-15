@@ -1,0 +1,10 @@
+:mod:`pyeeg.mcca`.mCCA.get_metadata_routing
+========================================================
+
+.. currentmodule:: pyeeg.mcca
+
+.. automethod:: mCCA.get_metadata_routing
+
+.. raw:: html
+
+    <div class="clearer"></div>
